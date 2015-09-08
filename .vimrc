@@ -13,59 +13,88 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+" Git support
 Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+"Plugin 'L9'
 " Git plugin not hosted on GitHub
+" Fast file navigation
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'"
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}"
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+"vim-airline Lean & mean status/tabline for vim that's light as air.
 Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
-Plugin 'edsono/vim-matchit'
+"Plugin 'edsono/vim-matchit'
 Plugin 'elzr/vim-json'
 Plugin 'honza/vim-snippets'
+"vim-sneak Sneak is a minimalist, versatile Vim motion plugin that jumps to
+"any location specified by two characters.
 Plugin 'justinmk/vim-sneak'
+"Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plugin 'kien/ctrlp.vim'
+"Mercurial
 Plugin 'ludovicchabant/vim-lawrencium'
+"Tagbar is a Vim plugin that provides an easy way to browse the tags of the
+"current file and get an overview of its structure. 
 Plugin 'majutsushi/tagbar'
+"vim signifiy It uses signs to indicate added, modified and removed lines based on data of
+"an underlying version control system.
 Plugin 'mhinz/vim-signify'
 Plugin 'plasticboy/vim-markdown'
 "Plugin 'scrooloose/nerdcommentor'
+"Gundo.vim is Vim plugin to visualize your Vim undo tree.
 Plugin 'sjl/gundo.vim'
 "Plugin 'tpope/vim-fugitive'"
+"Indent support
 Plugin 'tpope/vim-sleuth'
 "Plugin 'tpope/vim-surround'
+" openbrowser by uri
 Plugin 'tyru/open-browser.vim'
-Plugin 'vim-scripts/a.vim'
+"A plugin for c
+"Plugin 'vim-scripts/a.vim'
 Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
+"PEP8 Support
 Plugin 'nvie/vim-flake8'
+"
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'rking/ag.vim'
-Plugin 'easymotion/vim-easymotion'
+"Plugin 'mattn/emmet-vim'
+"use sneak Plugin 'easymotion/vim-easymotion' 
 let g:ag_working_path_mode="r"
+let g:sneak#streak = 1
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
 " All of your Plugins must be added before the following line
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr> 
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 "YouCompleteMe setup"
  
-let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 2
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
+set ttimeoutlen=50
 ""UltiSnips setup"
 let g:UltiSnipsExpandTrigger = "<nop>"
 let g:ulti_expand_or_jump_res = 0
@@ -85,24 +114,26 @@ let g:UltiSnipsListSnippets="<c-L>"
 let g:UltiSnipsSnippetsDir='/home/honhon/.vim/bundle/UltiSnips/snips'
 let g:UltiSnipsEditSplit='vertical'
 
+"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+"let g:user_emmet_leader_key='<C-Z>'
 ""EasyMotion"
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
+"let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Bi-directional find motion
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap s <Plug>(easymotion-s)
+"nmap s <Plug>(easymotion-s)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
-nmap s <Plug>(easymotion-s2)
+"nmap s <Plug>(easymotion-s2)
 
 " Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
 
 colorscheme molokai
 "let g:molokai_original = 1
@@ -125,10 +156,21 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 set number
 if $COLORTERM == 'gnome-terminal'
 	set t_Co=256
+endif
+let g:ctrlp_use_caching = 0
+if executable('ag')
+	set grepprg=ag\ --nogroup\ --nocolor
+
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+	let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+	let g:ctrlp_prompt_mappings = {
+		\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+		\ }
 endif
 
