@@ -227,4 +227,13 @@ set wrap "Wrap lines
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
 map <leader>nn :Autopep8<cr>
 let g:autopep8_disable_show_diff=1
-imap ;; <Esc>
+map ;;t :tabedit<space>
+map ;;l A
+imap ;;l <Esc>A
+imap ;;k <Esc>A<cr>
+imap ;;j <Esc>}A<cr>
+imap ;;u <Esc>:u<cr>
+map ;;u :u<cr>
+imap ff <Esc>
+imap ;;w <Esc>:w!<cr>
+map ;;w <Esc>:w!<cr>
