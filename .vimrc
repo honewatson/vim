@@ -87,8 +87,8 @@ autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 "YouCompleteMe setup"
- 
-let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_always_populate_location_list = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 2
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -173,4 +173,3 @@ else
 		\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
 		\ }
 endif
-
