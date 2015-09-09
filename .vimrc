@@ -1,5 +1,7 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+ 
 " set the runtime path to include Vundle and initialize
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -75,49 +77,7 @@ Plugin 'rking/ag.vim'
 "Plugin 'mattn/emmet-vim'
 "use sneak Plugin 'easymotion/vim-easymotion' 
 set showcmd
-
-" Set to auto read when a file is changed from the outside
-" set autoread
-"
-" " With a map leader it's possible to do extra key combinations
-" " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
-"
-" " Fast saving
-nmap <leader>w :w!<cr>
-
-" Height of the command bar
-set cmdheight=2
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Use spaces instead of tabs
-" set expandtab
-"
-"" Be smart when using tabs ;)
-set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-
-" " Linebreak on 500 characters
-set lbr
-set tw=500
-
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
-" Opens a new tab with the current buffer's path
-" " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
-
-" let mapleader = "<space>"
+"let mapleader = "<space>"
 let g:ag_working_path_mode="r"
 let g:sneak#streak = 1
 nmap <F8> :TagbarToggle<CR>
@@ -134,7 +94,7 @@ let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 1
-noremap <leader>dd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -225,5 +185,46 @@ else
 		\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
 		\ }
 endif
+" Set to auto read when a file is changed from the outside
+" set autoread
+"
+" " With a map leader it's possible to do extra key combinations
+" " like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+"
+" " Fast saving
+nmap <leader>w :w!<cr>
+
+" Height of the command bar
+set cmdheight=2
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " Use spaces instead of tabs
+" set expandtab
+"
+"" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" " Linebreak on 500 characters
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+" Opens a new tab with the current buffer's path
+" " Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
 map <leader>nn :Autopep8<cr>
 let g:autopep8_disable_show_diff=1
+imap ;; <Esc>
