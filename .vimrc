@@ -38,6 +38,8 @@ Plugin 'SirVer/ultisnips'
 "Plugin 'edsono/vim-matchit'
 Plugin 'elzr/vim-json'
 Plugin 'honza/vim-snippets'
+Plugin 'honza/dockerfile.vim'
+Plugin 'chase/vim-ansible-yaml'
 "vim-sneak Sneak is a minimalist, versatile Vim motion plugin that jumps to
 "any location specified by two characters.
 Plugin 'justinmk/vim-sneak'
@@ -73,7 +75,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'rking/ag.vim'
-"Plugin 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 "use sneak Plugin 'easymotion/vim-easymotion' 
 set showcmd
 "let mapleader = "<space>"
@@ -246,3 +248,4 @@ map <Leader>slb :SlimuxREPLSendBuffer<CR>
 vmap <Leader>sl :SlimuxREPLSendSelection<CR>
 map <Leader>sla :SlimuxShellLast<CR>
 map <Leader>slk :SlimuxSendKeysLast<CR>
+let g:user_emmet_leader_key=';;'
