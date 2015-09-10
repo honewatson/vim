@@ -237,3 +237,6 @@ map ;;u :u<cr>
 imap ff <Esc>
 imap ;;w <Esc>:w!<cr>
 map ;;w <Esc>:w!<cr>
+imap ;;wq <Esc>:wq!<cr>
+map ;;wq <Esc>:wq!<cr>
+
