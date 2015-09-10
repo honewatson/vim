@@ -238,4 +238,5 @@ imap ;;w <Esc>:w!<cr>
 map ;;w <Esc>:w!<cr>
 imap ;;wq <Esc>:wq!<cr>
 map ;;wq <Esc>:wq!<cr>
-
+map ;;c :lclose<cr>
+map ,,ss :SyntasticToggleMode<cr>:w!<cr>
