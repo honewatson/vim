@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
- 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -240,3 +239,4 @@ imap ;;wq <Esc>:wq!<cr>
 map ;;wq <Esc>:wq!<cr>
 map ;;c :lclose<cr>
 map ,,ss :SyntasticToggleMode<cr>:w!<cr>
+map ,,gc :Git commit -a -m "
