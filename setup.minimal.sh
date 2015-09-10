@@ -92,8 +92,8 @@ git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouComplet
 cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive \
  && python install.py --gocode-completer
 git config --global credential.helper 'cache --timeout=86400'
-git clone https://github.com/tomasr/molokai.git ~/.vim/colors
-mv -f ~/.vim/colors/colors/molokai.vim ~/.vim/colors/molokai.vim
+git clone https://github.com/honewatson/hon-snippet.git ~/.vim/bundle/Ultisnips
 git clone https://github.com/honewatson/vim.git
 mv vim/.vimrc ~/.vimrc
+mv -f ~/vim/molokai.vim ~/.vim/colors/molokai.vim
 vim +PluginInstall +qall

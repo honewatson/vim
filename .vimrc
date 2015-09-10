@@ -123,7 +123,7 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" 
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsListSnippets="<c-L>"
-let g:UltiSnipsSnippetsDir='/home/honhon/.vim/bundle/UltiSnips/snips'
+let g:UltiSnipsSnippetsDir='~/.vim/bundle/UltiSnips/snips'
 let g:UltiSnipsEditSplit='vertical'
 
 "imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")

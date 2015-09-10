@@ -139,8 +139,8 @@ cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive \
  && python install.py --clang-completer --gocode-completer
  sudo npm install -g typescript
 git config --global credential.helper 'cache --timeout=86400'
-git clone https://github.com/tomasr/molokai.git ~/.vim/colors
-mv -f ~/.vim/colors/colors/molokai.vim ~/.vim/colors/molokai.vim
+git clone https://github.com/honewatson/hon-snippet.git ~/.vim/bundle/Ultisnips
 git clone https://github.com/honewatson/vim.git
 mv vim/.vimrc ~/.vimrc
+mv -f ~/vim/molokai.vim ~/.vim/colors/molokai.vim
 vim +PluginInstall +qall
