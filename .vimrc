@@ -8,7 +8,7 @@ call vundle#begin()
  
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
- 
+Plugin 'epeli/slimux' 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -232,12 +232,17 @@ imap ;;k <Esc>A<cr>
 imap ;;j <Esc>}A<cr>
 imap ;;u <Esc>:u<cr>
 map ;;u :u<cr>
-imap ff <Esc>
+imap vv <Esc>
 imap ;;w <Esc>:w!<cr>
 map ;;w <Esc>:w!<cr>
 imap ;;wq <Esc>:wq!<cr>
 map ;;wq <Esc>:wq!<cr>
 map ;;c :lclose<cr>
-map ,,ss :SyntasticToggleMode<cr>:w!<cr>
-map ,,gc :Git commit -a -m "
-map ,,gp :Git push<cr>
+map <Leader>ss :SyntasticToggleMode<cr>:w!<cr>
+map <Leader>gc :Git commit -a -m "
+map <Leader>gp :Git push<cr>
+map <Leader>sl :SlimuxREPLSendLine<CR>
+map <Leader>slb :SlimuxREPLSendBuffer<CR>
+vmap <Leader>sl :SlimuxREPLSendSelection<CR>
+map <Leader>sla :SlimuxShellLast<CR>
+map <Leader>slk :SlimuxSendKeysLast<CR>
