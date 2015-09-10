@@ -240,3 +240,4 @@ map ;;wq <Esc>:wq!<cr>
 map ;;c :lclose<cr>
 map ,,ss :SyntasticToggleMode<cr>:w!<cr>
 map ,,gc :Git commit -a -m "
+map ,,gp :Git push<cr>
