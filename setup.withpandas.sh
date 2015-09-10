@@ -141,6 +141,7 @@ cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive \
 git config --global credential.helper 'cache --timeout=86400'
 git clone https://github.com/honewatson/hon-snippet.git ~/.vim/UltiSnips
 git clone https://github.com/honewatson/vim.git
-mv vim/.vimrc ~/.vimrc
-mv -f ~/vim/molokai.vim ~/.vim/colors/molokai.vim
+ln -s ~/vim/.vimrc ~/.vimrc
+ln -s ~/vim/.vimrc ~/.ideavimrc
+ln -s ~/vim/molokai.vim ~/.vim/colors/molokai.vim
 vim +PluginInstall +qall
