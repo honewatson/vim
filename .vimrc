@@ -108,7 +108,7 @@ let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set ttimeoutlen=50
 ""UltiSnips setup"
-let g:UltiSnipsExpandTrigger = "<nop>"
+let g:UltiSnipsExpandTrigger = ";;<tab>"
 let g:ulti_expand_or_jump_res = 0
 let g:ultisnips_python_style="doxygen"
 function ExpandSnippetOrCarriageReturn()
@@ -123,7 +123,6 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" 
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsListSnippets="<c-L>"
-let g:UltiSnipsSnippetsDir='~/.vim/bundle/UltiSnips/snips'
 let g:UltiSnipsEditSplit='vertical'
 
 "imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
