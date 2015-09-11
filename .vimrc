@@ -8,6 +8,8 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
  
 " let Vundle manage Vundle, required
+
+Plugin 'dkprice/vim-easygrep'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'epeli/slimux' 
 " The following are examples of different formats supported.
@@ -75,6 +77,8 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'marijnh/tern_for_vim'
+
+
 Plugin 'rking/ag.vim'
 Plugin 'mattn/emmet-vim'
 "use sneak Plugin 'easymotion/vim-easymotion' 
@@ -179,7 +183,7 @@ let g:ctrlp_use_caching = 0
 if executable('ag')
 	set grepprg=ag\ --nogroup\ --nocolor
 
-	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+	let g:ctrlp_user_command = 'ag %s -l --nocolor  -g ""'
 else
 	let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 	let g:ctrlp_prompt_mappings = {
@@ -220,6 +224,8 @@ set tabstop=4
 set lbr
 set tw=500
 
+" Set easyvim to ag
+let g:EasyGrepCommand=1      
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
@@ -261,3 +267,4 @@ map ;;vo :tabedit ~/vim/.vimrc<cr>
 map ,,w <c-w>
 map ;;sh :!cat ~/vim/help.txt<cr>
 map ;;pu :!pythoscope %<cr>
+
