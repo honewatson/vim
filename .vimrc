@@ -57,7 +57,7 @@ Plugin 'majutsushi/tagbar'
 "an underlying version control system.
 Plugin 'mhinz/vim-signify'
 Plugin 'plasticboy/vim-markdown'
-"Plugin 'scrooloose/nerdcommentor'
+Plugin 'scrooloose/nerdcommentor'
 "Gundo.vim is Vim plugin to visualize your Vim undo tree.
 Plugin 'sjl/gundo.vim'
 "Plugin 'tpope/vim-fugitive'"
@@ -80,13 +80,12 @@ Plugin 'marijnh/tern_for_vim'
 
 
 Plugin 'rking/ag.vim'
-Plugin 'mattn/emmet-vim'
+"Plugin 'mattn/emmet-vim'
 "use sneak Plugin 'easymotion/vim-easymotion' 
 set showcmd
 "let mapleader = "<space>"
 let g:ag_working_path_mode="r"
 let g:sneak#streak = 1
-nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 " All of your Plugins must be added before the following line
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr> 
@@ -260,11 +259,12 @@ let g:user_emmet_leader_key=';;'
 map ;;ag :Ag<space>
 imap ;;ag :Ag<space>
 map ;;q :q!<cr>
-map ,c :!
+map <Leader><Leader>c :!
 noremap ;;a <esc>ggVG<CR>
 map ;;v :!cat ~/.vimrc<cr>
 map ;;vo :tabedit ~/vim/.vimrc<cr>
 map ,,w <c-w>
-map ;;sh :!cat ~/vim/help.txt<cr>
+map ;;help :!cat ~/vim/help.txt<cr>
 map ;;pu :!pythoscope %<cr>
-
+map ;;s <Esc>^i
+nmap ;;tb :TagbarToggle<CR>

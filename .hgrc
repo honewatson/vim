@@ -1,0 +1,20 @@
+[ui]
+#username = First Lastname <some.email@address.com.au>
+ssh = ssh -C
+
+[extensions]
+color =
+purge = 
+graphlog =
+mq =
+
+[color]
+status.modified = black bold underline yellow_background
+status.added = green bold
+status.removed = red bold blue_background
+status.deleted = cyan bold underline
+status.unknown = magenta bold underline
+status.ignored = black bold
+
+[web]
+cacerts = /etc/ssl/certs/ca-certificates.crt
