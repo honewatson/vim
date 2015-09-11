@@ -103,7 +103,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let g:airline#extensions#tabline#enabled = 1
@@ -258,3 +258,6 @@ map ,c :!
 noremap ;;a <esc>ggVG<CR>
 map ;;v :!cat ~/.vimrc<cr>
 map ;;vo :tabedit ~/vim/.vimrc<cr>
+map ,,w <c-w>
+map ;;sh :!cat ~/vim/help.txt<cr>
+map ;;pu :!pythoscope %<cr>
