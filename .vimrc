@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -240,6 +241,7 @@ map ;;w <Esc>:w!<cr>
 imap ;;wq <Esc>:wq!<cr>
 map ;;wq <Esc>:wq!<cr>
 map ;;c :lclose<cr>
+map <Leader>st :SyntasticToggleMode<cr>
 map <Leader>ss :SyntasticToggleMode<cr>:w!<cr>
 map <Leader>gc :Git commit -a -m "
 map <Leader>gp :Git push<cr>
@@ -249,3 +251,10 @@ vmap <Leader>sl :SlimuxREPLSendSelection<CR>
 map <Leader>sla :SlimuxShellLast<CR>
 map <Leader>slk :SlimuxSendKeysLast<CR>
 let g:user_emmet_leader_key=';;'
+map ;;ag :Ag<space>
+imap ;;ag :Ag<space>
+map ;;q :q!<cr>
+map ,c :!
+noremap ;;a <esc>ggVG<CR>
+map ;;v :!cat ~/.vimrc<cr>
+map ;;vo :tabedit ~/vim/.vimrc<cr>
