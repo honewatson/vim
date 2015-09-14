@@ -10,6 +10,8 @@ apt-get install build-essential -y
 apt-get install python-dev -y
 apt-get install libxml2-dev -y
 apt-get install libxslt-dev -y
+apt-get install python3-setuptools -y
+apt-get install python3-dev -y
 apt-get install python-pip -y
 apt-get install python-imaging -y
 apt-get install python-imaging-tk -y
@@ -48,6 +50,7 @@ apt-get install python-lxml -y
 
 ln -s /usr/bin/nodejs /usr/bin/node && npm install -g bower grunt-cli
 
+easy_install3 pip
 pip install --upgrade pip
 pip install flake8
 pip install virtualenv
