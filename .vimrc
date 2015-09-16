@@ -98,8 +98,8 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist={'unite': 1}
-let g:ycm_min_num_of_chars_for_completion = 1
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_min_num_of_chars_for_completion = 3
+map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
