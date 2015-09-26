@@ -8,7 +8,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
  
 " let Vundle manage Vundle, required
-
+Plugin 'groenewege/vim-less'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'epeli/slimux' 
