@@ -73,6 +73,7 @@ pip install tornado
 pip install autopep8
 pip install Sphinx
 pip install pythoscope
+pip install cookiecutter
 mkdir ~/installs
 cd ~/installs && \
 wget https://storage.googleapis.com/golang/go1.4.2.src.tar.gz && tar -xzvf go1.4.2.src.tar.gz && \
