@@ -8,7 +8,9 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
  
 " let Vundle manage Vundle, required
+
 Plugin 'zah/nim.vim'
+Plugin 'groenewege/vim-less'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'epeli/slimux' 
@@ -98,7 +100,7 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist={'unite': 1}
-let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_of_chars_for_completion = 2
 map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -268,3 +270,5 @@ map ;;help :!cat ~/vim/help.txt<cr>
 map ;;pu :!pythoscope %<cr>
 map ;;s <Esc>^i
 nmap ;;tb :TagbarToggle<CR>
+imap xx <Esc>lli
+
