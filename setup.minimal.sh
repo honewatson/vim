@@ -33,6 +33,8 @@ apt-get install libffi-dev -y
 apt-get install cmake -y
 apt-get install nodejs -y
 apt-get install npm -y
+apt-get install libevent-dev
+apt-get install python-all-dev
 echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list.d/pgdg.list
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 apt-get update -y
@@ -55,6 +57,8 @@ pip install cytoolz
 pip install django
 pip install wagtail
 pip install fabric
+pip install greenlet
+pip install gevent
 pip install flask
 pip install flask-login
 pip install flask-wtf
