@@ -8,7 +8,8 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
  
 " let Vundle manage Vundle, required
-
+Plugin 'Rykka/riv.vim'
+Plugin 'Rykka/InstantRst'
 Plugin 'zah/nim.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'dkprice/vim-easygrep'
@@ -59,7 +60,7 @@ Plugin 'majutsushi/tagbar'
 "an underlying version control system.
 Plugin 'mhinz/vim-signify'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'scrooloose/nerdcommentor'
+Plugin 'The-NERD-Commenter'
 "Gundo.vim is Vim plugin to visualize your Vim undo tree.
 Plugin 'sjl/gundo.vim'
 "Plugin 'tpope/vim-fugitive'"
