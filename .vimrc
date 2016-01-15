@@ -83,6 +83,7 @@ Plugin 'marijnh/tern_for_vim'
 
 
 Plugin 'rking/ag.vim'
+Plugin 'justinj/vim-react-snippets'
 "Plugin 'mattn/emmet-vim'
 "use sneak Plugin 'easymotion/vim-easymotion' 
 set showcmd
