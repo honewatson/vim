@@ -286,4 +286,4 @@ map ;;pu :!pythoscope %<cr>
 map ;;s <Esc>^i
 nmap ;;tb :TagbarToggle<CR>
 imap xx <Esc>lli
-
+" http://bencrowder.net/files/vim-fu/
