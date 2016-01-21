@@ -290,3 +290,4 @@ map ;;s <Esc>^i
 nmap ;;tb :TagbarToggle<CR>
 imap xx <Esc>lli
 map ,,a :Autoformat<CR>
+" http://bencrowder.net/files/vim-fu/
