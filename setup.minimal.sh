@@ -107,3 +107,4 @@ ln -s ~/vim/.vimrc ~/.ideavimrc
 ln -s ~/vim/.tmux.conf ~/.tmux.conf
 ln -s ~/vim/molokai.vim ~/.vim/colors/molokai.vim
 vim +PluginInstall +qall
+sudo gem install sass

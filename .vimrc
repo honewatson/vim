@@ -8,6 +8,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
  
 " let Vundle manage Vundle, required
+Plugin 'Chiel92/vim-autoformat'
 Plugin 'Rykka/riv.vim'
 Plugin 'Rykka/InstantRst'
 Plugin 'zah/nim.vim'
@@ -92,6 +93,8 @@ let g:ag_working_path_mode="r"
 let g:sneak#streak = 1
 let g:tagbar_autofocus = 1
 " All of your Plugins must be added before the following line
+let g:autoformat_autoindent = 0
+let g:formatterpath = ['~/vim/formatters']
 map <c-f> :call JsBeautify()<cr>
 " or
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
@@ -286,4 +289,4 @@ map ;;pu :!pythoscope %<cr>
 map ;;s <Esc>^i
 nmap ;;tb :TagbarToggle<CR>
 imap xx <Esc>lli
-
+map ,,a :Autoformat<CR>
