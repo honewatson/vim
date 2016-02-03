@@ -1,7 +1,7 @@
 imap vv <Esc>
 let mapleader = ","
 let g:mapleader = ","
-vmap <Leader>e :action SurroundWithEmmet<CR>
+map <Leader>e :action SurroundWithEmmet<CR>
 map <Leader>w :w!<cr>
 map <Leader>q :q!<cr>
 map <Leader>t :action GotoFile<CR>
