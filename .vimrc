@@ -31,7 +31,7 @@ Plugin 'git://git.wincent.com/command-t.git'
 " Plugin 'file:///home/gmarik/path/to/plugin'"
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}"
@@ -85,7 +85,7 @@ Plugin 'marijnh/tern_for_vim'
 
 Plugin 'rking/ag.vim'
 Plugin 'justinj/vim-react-snippets'
-"Plugin 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 "use sneak Plugin 'easymotion/vim-easymotion' 
 set showcmd
 "let mapleader = "<space>"
@@ -275,7 +275,8 @@ map <Leader>slb :SlimuxREPLSendBuffer<CR>
 vmap <Leader>sl :SlimuxREPLSendSelection<CR>
 map <Leader>sla :SlimuxShellLast<CR>
 map <Leader>slk :SlimuxSendKeysLast<CR>
-let g:user_emmet_leader_key=';;'
+" let g:user_emmet_leader_key='<Leader>e'
+map <Leader>e <c-y>,
 map ;;ag :Ag<space>
 imap ;;ag :Ag<space>
 map ;;q :q!<cr>
