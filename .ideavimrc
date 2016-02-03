@@ -1,1 +1,11 @@
-source ~/.vimrc
+imap vv <Esc>
+let mapleader = ","
+let g:mapleader = ","
+map <Leader>w :w!<cr>
+map <Leader>q :q!<cr>
+map <Leader>t :action GotoFile<CR>
+imap ;;l <Esc>A
+imap ;;k <Esc>A<cr>
+imap ;;j <Esc>}A<cr>
+imap ;;u <Esc>:u<cr>
+
