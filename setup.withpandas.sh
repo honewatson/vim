@@ -153,7 +153,7 @@ git config --global credential.helper 'cache --timeout=86400'
 git clone https://github.com/honewatson/hon-snippet.git ~/.vim/UltiSnips
 git clone https://github.com/honewatson/vim.git
 ln -s ~/vim/.vimrc ~/.vimrc
-ln -s ~/vim/.vimrc ~/.ideavimrc
+cp ~/vim/.ideavimrc ~/
 ln -s ~/vim/.tmux.conf ~/.tmux.conf
 ln -s ~/vim/molokai.vim ~/.vim/colors/molokai.vim
 vim +PluginInstall +qall
