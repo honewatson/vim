@@ -7,5 +7,5 @@ map <Leader>t :action GotoFile<CR>
 imap ;;l <Esc>A
 imap ;;k <Esc>A<cr>
 imap ;;j <Esc>}A<cr>
-imap ;;u <Esc>:u<cr>
+imap ;;u $Undo
 
