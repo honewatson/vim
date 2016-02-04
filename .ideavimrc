@@ -5,8 +5,9 @@ map <Leader>e :action SurroundWithEmmet<CR>
 map <Leader>w :w!<cr>
 map <Leader>q :q!<cr>
 map <Leader>t :action GotoFile<CR>
-imap ;;l <Esc>A
-imap ;;k <Esc>A<cr>
-imap ;;j <Esc>}A<cr>
-imap ;;u $Undo
+imap zzl <Esc>A
+imap zzk <Esc>A<cr>
+imap zzj <Esc>}A<cr>
+nmap ;u :u<cr>
+imap zzu <Esc>:u<cr>
 
