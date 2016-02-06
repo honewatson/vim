@@ -6,45 +6,51 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
- 
-" let Vundle manage Vundle, required
+" Autoformat > ,,a
 Plugin 'Chiel92/vim-autoformat'
+" reStructured Text
 Plugin 'Rykka/riv.vim'
+" Display reStructured Text
 Plugin 'Rykka/InstantRst'
+" Nim Lint
 Plugin 'zah/nim.vim'
+" Less Lint
 Plugin 'groenewege/vim-less'
+" Fast and Easy Find and Replace Across Multiple Files
+" ,vv ( Grep for word under cursor  )
 Plugin 'dkprice/vim-easygrep'
+" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+" Interact with different tmux panes directly from Vim ( REPL )
 Plugin 'epeli/slimux' 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 " Git support
 Plugin 'tpope/vim-fugitive'
+"Python code quality
 Plugin 'tell-k/vim-autopep8'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
 " Fast file navigation
 Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'"
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
+" Pass the path to set the runtimepath properly.( Using vim-emmet instead because of surround )
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}"
+" Python virtualenv support
 Plugin 'jmcantrell/vim-virtualenv'
+" Golang Lint etc
 Plugin 'fatih/vim-go'
+" Autocompletion tool
 Plugin 'Valloric/YouCompleteMe'
+" Syntastic is a syntax checking plugin for Vim 
 Plugin 'scrooloose/syntastic'
 "vim-airline Lean & mean status/tabline for vim that's light as air.
 Plugin 'bling/vim-airline'
+" Snippets plugin that works with YouCompleteMe
 Plugin 'SirVer/ultisnips'
 "Plugin 'edsono/vim-matchit'
+" Json helper Plugin
 Plugin 'elzr/vim-json'
+" Snippet manager that works with UltiSnips
 Plugin 'honza/vim-snippets'
+" Docker file linting
 Plugin 'honza/dockerfile.vim'
 Plugin 'chase/vim-ansible-yaml'
 "vim-sneak Sneak is a minimalist, versatile Vim motion plugin that jumps to
@@ -60,7 +66,12 @@ Plugin 'majutsushi/tagbar'
 "vim signifiy It uses signs to indicate added, modified and removed lines based on data of
 "an underlying version control system.
 Plugin 'mhinz/vim-signify'
+" Markdown linting and support
 Plugin 'plasticboy/vim-markdown'
+" Comment support
+" <leader>c<space> Toggle
+" <leader>cc Comment out
+" <leader>cu Uncomment
 Plugin 'The-NERD-Commenter'
 "Gundo.vim is Vim plugin to visualize your Vim undo tree.
 Plugin 'sjl/gundo.vim'
@@ -72,19 +83,25 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'tyru/open-browser.vim'
 "A plugin for c
 "Plugin 'vim-scripts/a.vim'
+" Color Support
 Plugin 'tomasr/molokai'
+" Color Support
 Plugin 'flazz/vim-colorschemes'
 "PEP8 Support
 Plugin 'nvie/vim-flake8'
-"
+" Beautify JS
 Plugin 'maksimr/vim-jsbeautify'
+" File/Folder Nav
 Plugin 'scrooloose/nerdtree'
+" Autopairs tool
 Plugin 'jiangmiao/auto-pairs'
+" Code completion for JS
 Plugin 'marijnh/tern_for_vim'
-
-
+" Silver Searcher SUpport
 Plugin 'rking/ag.vim'
+" REact Snippets
 Plugin 'justinj/vim-react-snippets'
+" Emmet auto completion 
 Plugin 'mattn/emmet-vim'
 "use sneak Plugin 'easymotion/vim-easymotion' 
 set showcmd
