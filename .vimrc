@@ -1,6 +1,11 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"
+" For lustyExplorer
+"
+set hidden
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -28,6 +33,11 @@ Plugin 'groenewege/vim-less'
 Plugin 'dkprice/vim-easygrep'
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
+"
+" For file buffer fast search
+"
+Plugin 'vim-scripts/LustyExplorer'
 
 " Interact with different tmux panes directly from Vim ( REPL )
 Plugin 'epeli/slimux' 
@@ -78,7 +88,7 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'justinmk/vim-sneak'
 
 "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 
 "Mercurial
 Plugin 'ludovicchabant/vim-lawrencium'
@@ -145,8 +155,8 @@ Plugin 'mattn/emmet-vim'
 
 "use sneak Plugin 'easymotion/vim-easymotion' 
 " Ctag Autofile support
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-easytags'
 set showcmd
 "let mapleader = "<space>"
 let g:ag_working_path_mode="r"
@@ -276,19 +286,20 @@ map <C-n> :NERDTreeToggle<CR>
 set number
 
 "
-" ctrlp and Silver Searcher setup
+" beginsetup ctrlp and Silver Searcher setup
 "
-let g:ctrlp_use_caching = 0
-if executable('ag')
-	set grepprg=ag\ --nogroup\ --nocolor
+"let g:ctrlp_use_caching = 0
+"if executable('ag')
+	"set grepprg=ag\ --nogroup\ --nocolor
 
-	let g:ctrlp_user_command = 'ag %s -l --nocolor  -g ""'
-else
-	let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-	let g:ctrlp_prompt_mappings = {
-		\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-		\ }
-endif
+	"let g:ctrlp_user_command = 'ag %s -l --nocolor  -g ""'
+"else
+	"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+	"let g:ctrlp_prompt_mappings = {
+		"\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+		"\ }
+"endif
+" endsetup ctrlp
 
 " Set to auto read when a file is changed from the outside
 " set autoread
@@ -326,14 +337,16 @@ set tabstop=4
 set lbr
 set tw=500
 
+
 " Set easyvim to ag
 let g:EasyGrepCommand=1      
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
 " Opens a new tab with the current buffer's path
 " " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
+nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
 map <leader>nn :Autopep8<cr>
 let g:autopep8_disable_show_diff=1
 map ;;t :tabedit<space>
