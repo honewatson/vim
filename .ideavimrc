@@ -8,6 +8,13 @@ map <Leader>t :action GotoFile<CR>
 imap zzl <Esc>A
 imap zzk <Esc>A<cr>
 imap zzj <Esc>}A<cr>
+imap zzej <Esc>:action EmmetNextEditPoint<CR>i
+imap zzek <Esc>:action EmmetPreviousEditPoint<CR>i
 nmap ;u :u<cr>
 imap zzu <Esc>:u<cr>
-
+nmap <Leader>n :action BrowseWordAtCaretPlugin.Next<CR>
+nmap <Leader>p :action BrowseWordAtCaretPlugin.Previous<CR>
+nmap <Leader>d :action GotoDeclaration<CR>
+nmap <Leader>r :action GotoNextError<CR>
+" Back <M-[>
+" QuickJump <M-;>
