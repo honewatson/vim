@@ -384,6 +384,6 @@ map ,,w <c-w>
 map ;;help :!cat ~/vim/help.txt<cr>
 map ;;pu :!pythoscope %<cr>
 map ;;s <Esc>^i
-nmap ;;tb :TagbarToggle<CR>
+nmap <Leader>7 :TagbarToggle<CR>
 map ,,a :Autoformat<CR>
 " http://bencrowder.net/files/vim-fu/
