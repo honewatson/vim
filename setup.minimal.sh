@@ -42,7 +42,7 @@ apt-get install postgresql-9.4 -y
 apt-get install postgresql-server-dev-9.4 -y
 apt-get install python-lxml -y
 apt-get install exuberant-ctags -y
-ln -s /usr/bin/nodejs /usr/bin/node && npm install -g bower grunt-cli
+ln -s /usr/bin/nodejs /usr/bin/node
 easy_install3 pip
 pip install --upgrade pip
 pip install flake8
@@ -80,11 +80,11 @@ pip install pythoscope
 pip install cookiecutter
 mkdir ~/installs
 cd ~/installs && \
-wget https://storage.googleapis.com/golang/go1.4.2.src.tar.gz && tar -xzvf go1.4.2.src.tar.gz && \
+wget https://storage.googleapis.com/golang/go1.6.src.tar.gz && tar -xzvf go1.6.src.tar.gz && \
 cd go/src && ./all.bash
 cd ~/installs && /usr/bin/env python -V 2>&1 | grep 2.7 && \
-wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.25.zip && \
-unzip go_appengine_sdk_linux_amd64-1.9.25.zip
+wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.33.zip && \
+unzip go_appengine_sdk_linux_amd64-1.9.33.zip
 
 echo "export GOPATH=~/go" >> ~/.bashrc
 echo "export PATH=~/installs/go/bin:/go/bin:/installs/go_appengine:$PATH" >> ~/.bashrc
@@ -105,6 +105,7 @@ git clone https://github.com/honewatson/vim.git
 ln -s ~/vim/.vimrc ~/.vimrc
 cp ~/vim/.ideavimrc ~/
 ln -s ~/vim/.tmux.conf ~/.tmux.conf
+mkdir ~/.vim/colors
 ln -s ~/vim/molokai.vim ~/.vim/colors/molokai.vim
 vim +PluginInstall +qall
-sudo gem install sass
+gem install sass
