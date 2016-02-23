@@ -113,4 +113,6 @@ ln -s ~/vim/.tmux.conf ~/.tmux.conf
 mkdir ~/.vim/colors
 ln -s ~/vim/molokai.vim ~/.vim/colors/molokai.vim
 vim +PluginInstall +qall
+cd ~/.vim/bundle/tern_for_vim
+npm install
 gem install sass
