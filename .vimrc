@@ -40,7 +40,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/LustyExplorer'
 
 " Interact with different tmux panes directly from Vim ( REPL )
-Plugin 'epeli/slimux' 
+Plugin 'epeli/slimux'
+Plugin 'honewatson/vim-tmuxify'
 
 " Git support
 Plugin 'tpope/vim-fugitive'
