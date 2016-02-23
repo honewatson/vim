@@ -42,6 +42,7 @@ Plugin 'vim-scripts/LustyExplorer'
 " Interact with different tmux panes directly from Vim ( REPL )
 Plugin 'epeli/slimux'
 Plugin 'honewatson/vim-tmuxify'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Git support
 Plugin 'tpope/vim-fugitive'
@@ -384,7 +385,10 @@ map <Leader><Leader>c :!
 noremap ;;a <esc>ggVG<CR>
 map ;;v :!cat ~/.vimrc<cr>
 map ;;vo :tabedit ~/vim/.vimrc<cr>
-map ,,w <c-w>
+map <Leader>wj <c-w>j
+map <Leader>wk <c-w>k
+map <Leader>wl <c-w>l
+map <Leader>wh <c-w>h
 map ;;help :!cat ~/vim/help.txt<cr>
 map ;;pu :!pythoscope %<cr>
 map ;;s <Esc>^i
@@ -394,3 +398,4 @@ map <Leader>N :bnext<CR>
 map <Leader>B :bprevious<CR>
 " :so $MYVIMRC
 " http://bencrowder.net/files/vim-fu/
+let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
