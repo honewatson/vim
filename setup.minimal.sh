@@ -2,7 +2,7 @@
 
 apt-get update -y
 apt-get upgrade -y
-apt-get install vim  -y
+apt-get install vim-nox  -y
 apt-get install python-software-properties  -y
 apt-get install unzip -y
 apt-get install zip -y
@@ -78,9 +78,11 @@ pip install autopep8
 pip install Sphinx
 pip install pythoscope
 pip install cookiecutter
+npm install tern
 mkdir ~/installs
+mkdir ~/go
 cd ~/installs && \
-wget https://storage.googleapis.com/golang/go1.6.src.tar.gz && tar -xzvf go1.6.src.tar.gz && \
+wget https://storage.googleapis.com/golang/go1.4.2.src.tar.gz && tar -xzvf go1.4.2.src.tar.gz && \
 cd go/src && ./all.bash
 cd ~/installs && /usr/bin/env python -V 2>&1 | grep 2.7 && \
 wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.33.zip && \
@@ -89,20 +91,19 @@ npm config set prefix ~/.node
 cd ~/.node
 sudo chown -R $USER *
 cd ~/
-echo "PATH=$PATH:~/.node/bin" >> ~/.bash_profile
 echo "export GOPATH=~/go" >> ~/.bashrc
-echo "export PATH=~/installs/go/bin:/go/bin:/installs/go_appengine:$PATH" >> ~/.bashrc
+echo "export PATH=~/.node/bin:~/installs/go/bin:~/go/bin:~/installs/go_appengine:$PATH" >> ~/.bashrc
 echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bashrc
 echo "export PROJECT_HOME=$HOME/Devel" >> ~/.bashrc
-echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
+#echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 mkdir ~/Devel
 source ~/.bashrc
 mkvirtualenv main
-
+npm install -g tern
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
 cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive \
- && python install.py --gocode-completer
+ && python install.py --gocode-completer --tern-completer
 git config --global credential.helper 'cache --timeout=86400'
 git clone https://github.com/honewatson/hon-snippet.git ~/.vim/UltiSnips
 git clone https://github.com/honewatson/vim.git
