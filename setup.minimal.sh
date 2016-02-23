@@ -115,4 +115,5 @@ ln -s ~/vim/molokai.vim ~/.vim/colors/molokai.vim
 vim +PluginInstall +qall
 cd ~/.vim/bundle/tern_for_vim
 npm install
+cp ~/vim/.tern-project ~/
 gem install sass

@@ -59,17 +59,6 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'jmcantrell/vim-virtualenv'
 
 " " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
-" " like <leader>w saves the current file
 " Golang Lint etc
 Plugin 'fatih/vim-go'
 
@@ -80,7 +69,21 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 
 "vim-airline Lean & mean status/tabline for vim that's light as air.
-Plugin 'bling/vim-airline' " Snippets plugin that works with YouCompleteMe Plugin 'SirVer/ultisnips' "Plugin 'edsono/vim-matchit' " Json helper Plugin Plugin 'elzr/vim-json' " Snippet manager that works with UltiSnips Plugin 'honza/vim-snippets' " Docker file linting Plugin 'honza/dockerfile.vim'
+Plugin 'bling/vim-airline'
+
+" Snippets plugin that works with YouCompleteMe 
+Plugin 'SirVer/ultisnips'
+
+"Plugin 'edsono/vim-matchit' 
+"" Json helper Plugin
+Plugin 'elzr/vim-json'
+
+" Snippet manager that works with UltiSnips 
+Plugin 'honza/vim-snippets'
+
+" Docker file linting 
+Plugin 'honza/dockerfile.vim'
+
 Plugin 'chase/vim-ansible-yaml'
 
 "vim-sneak Sneak is a minimalist, versatile Vim motion plugin that jumps to
@@ -193,7 +196,7 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist={'unite': 1}
-let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_min_num_of_chars_for_completion = 1
 map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "
@@ -386,4 +389,7 @@ map ;;pu :!pythoscope %<cr>
 map ;;s <Esc>^i
 nmap <Leader>7 :TagbarToggle<CR>
 map ,,a :Autoformat<CR>
+map <Leader>N :bnext<CR>
+map <Leader>B :bprevious<CR>
+" :so $MYVIMRC
 " http://bencrowder.net/files/vim-fu/
