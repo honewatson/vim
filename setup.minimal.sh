@@ -85,7 +85,11 @@ cd go/src && ./all.bash
 cd ~/installs && /usr/bin/env python -V 2>&1 | grep 2.7 && \
 wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.33.zip && \
 unzip go_appengine_sdk_linux_amd64-1.9.33.zip
-
+npm config set prefix ~/.node
+cd ~/.node
+sudo chown -R $USER *
+cd ~/
+echo "PATH=$PATH:~/.node/bin" >> ~/.bash_profile
 echo "export GOPATH=~/go" >> ~/.bashrc
 echo "export PATH=~/installs/go/bin:/go/bin:/installs/go_appengine:$PATH" >> ~/.bashrc
 echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bashrc
