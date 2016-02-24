@@ -399,3 +399,4 @@ map <Leader>B :bprevious<CR>
 " :so $MYVIMRC
 " http://bencrowder.net/files/vim-fu/
 let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
+let g:tmuxify_run = {'js':'node'}

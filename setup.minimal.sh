@@ -3,6 +3,7 @@
 apt-get update -y
 apt-get upgrade -y
 apt-get install vim-nox  -y
+apt-get install ruby-dev
 apt-get install python-software-properties  -y
 apt-get install unzip -y
 apt-get install zip -y
@@ -117,3 +118,9 @@ cd ~/.vim/bundle/tern_for_vim
 npm install
 cp ~/vim/.tern-project ~/
 gem install sass
+mkdir tmux
+ln -s ~/vim/tmux/node ~/.tmux/node
+cd ~/.vim/bundle/command-t/ruby/command-t
+ruby extconf.rb
+make
+
