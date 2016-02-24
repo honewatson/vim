@@ -118,7 +118,7 @@ cd ~/.vim/bundle/tern_for_vim
 npm install
 cp ~/vim/.tern-project ~/
 gem install sass
-mkdir tmux
+mkdir ~/.tmux
 ln -s ~/vim/tmux/node ~/.tmux/node
 cd ~/.vim/bundle/command-t/ruby/command-t
 ruby extconf.rb
