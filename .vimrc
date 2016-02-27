@@ -17,6 +17,8 @@ call vundle#begin()
 Plugin 'pangloss/vim-javascript'
 Plugin 'crusoexia/vim-javascript-lib'
 
+
+
 " Autoformat > ,,a
 Plugin 'Chiel92/vim-autoformat'
 
@@ -55,7 +57,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tell-k/vim-autopep8'
 
 " Fast file navigation
-Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " Pass the path to set the runtimepath properly.( Using vim-emmet instead because of surround )
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
@@ -69,7 +71,7 @@ Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'fatih/vim-go'
 
 " Autocompletion tool
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 " Syntastic is a syntax checking plugin for Vim 
 Plugin 'scrooloose/syntastic'
@@ -97,7 +99,7 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'justinmk/vim-sneak'
 
 "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-"Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 "Mercurial
 Plugin 'ludovicchabant/vim-lawrencium'
@@ -151,7 +153,22 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 
 " Code completion for JS
+
+Plugin 'Shougo/neocomplete.vim'
+let g:neocomplete#enable_at_startup = 1
+"let g:neocomplete#sources#omni#functions.javascript = [
+    "\'jspc#omni',
+    "\'tern#Complete',
+    "\]
+
 Plugin 'marijnh/tern_for_vim'
+Plugin 'othree/jspc.vim'
+Plugin 'moll/vim-node'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'ramitos/jsctags'
+Plugin 'osyo-manga/vim-watchdogs'
+Plugin 'othree/jsdoc-syntax.vim'
+Plugin 'heavenshell/vim-jsdoc'
 
 " Silver Searcher SUpport
 Plugin 'rking/ag.vim'
@@ -199,11 +216,11 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 "
 "YouCompleteMe setup"
 "
-let g:ycm_always_populate_location_list = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_filetype_blacklist={'unite': 1}
-let g:ycm_min_num_of_chars_for_completion = 1
-map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_always_populate_location_list = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_filetype_blacklist={'unite': 1}
+"let g:ycm_min_num_of_chars_for_completion = 1
+"map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "
 "Syntastic
@@ -308,6 +325,28 @@ set number
 		"\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
 		"\ }
 "endif
+" Alternative ctrlp set up
+
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  set grepprg=ag\ --nogroup\ --nocolor
+  "let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git"'
+  " ag is fast enough that CtrlP doesn't need to cache
+  "let g:ctrlp_use_caching = 0
+else
+  " Fall back to using git ls-files if Ag is not available
+  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+endif
+
+" Default to filename searches - so that appctrl will find application
+" controller
+"let g:ctrlp_by_filename = 1
+
+" Don't jump to already open window. This is annoying if you are maintaining
+" several Tab workspaces and want to open two windows into the same file.
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
 " endsetup ctrlp
 
 " Set to auto read when a file is changed from the outside
@@ -404,3 +443,76 @@ map <Leader>B :bprevious<CR>
 " http://bencrowder.net/files/vim-fu/
 let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
 let g:tmuxify_run = {'js':'node'}
+
+" Extended Neocomplete 
+"
+
+let g:acp_enableAtStartup = 1
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
