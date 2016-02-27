@@ -51,7 +51,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tell-k/vim-autopep8'
 
 " Fast file navigation
-Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " Pass the path to set the runtimepath properly.( Using vim-emmet instead because of surround )
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
@@ -93,7 +93,7 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'justinmk/vim-sneak'
 
 "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-"Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 "Mercurial
 Plugin 'ludovicchabant/vim-lawrencium'
@@ -122,7 +122,7 @@ Plugin 'sjl/gundo.vim'
 "Indent support
 Plugin 'tpope/vim-sleuth'
 
-"Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 " openbrowser by uri
 Plugin 'tyru/open-browser.vim'
 "A plugin for c
@@ -138,16 +138,26 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'nvie/vim-flake8'
 
 " Beautify JS
+Plugin 'pangloss/vim-javascript'
+Plugin 'crusoexia/vim-javascript-lib'
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'othree/jspc.vim'
+Plugin 'moll/vim-node'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'ramitos/jsctags'
+Plugin 'osyo-manga/vim-watchdogs'
+Plugin 'othree/jsdoc-syntax.vim'
+Plugin 'heavenshell/vim-jsdoc'
+" Code completion for JS
+Plugin 'marijnh/tern_for_vim'
+
+
 
 " File/Folder Nav
 Plugin 'scrooloose/nerdtree'
 
 " Autopairs tool
 Plugin 'jiangmiao/auto-pairs'
-
-" Code completion for JS
-Plugin 'marijnh/tern_for_vim'
 
 " Silver Searcher SUpport
 Plugin 'rking/ag.vim'
@@ -292,18 +302,29 @@ set number
 
 "
 " beginsetup ctrlp and Silver Searcher setup
-"
-"let g:ctrlp_use_caching = 0
-"if executable('ag')
-	"set grepprg=ag\ --nogroup\ --nocolor
 
-	"let g:ctrlp_user_command = 'ag %s -l --nocolor  -g ""'
-"else
-	"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-	"let g:ctrlp_prompt_mappings = {
-		"\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-		"\ }
-"endif
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  set grepprg=ag\ --nogroup\ --nocolor
+  "let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git"'
+  " ag is fast enough that CtrlP doesn't need to cache
+  "let g:ctrlp_use_caching = 0
+else
+  " Fall back to using git ls-files if Ag is not available
+  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+endif
+
+" Default to filename searches - so that appctrl will find application
+" controller
+"let g:ctrlp_by_filename = 1
+
+" Don't jump to already open window. This is annoying if you are maintaining
+" several Tab workspaces and want to open two windows into the same file.
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+
+
 " endsetup ctrlp
 
 " Set to auto read when a file is changed from the outside
@@ -396,6 +417,7 @@ nmap <Leader>7 :TagbarToggle<CR>
 map ,,a :Autoformat<CR>
 map <Leader>N :bnext<CR>
 map <Leader>B :bprevious<CR>
+map <Leader>td :TernDef<CR>
 " :so $MYVIMRC
 " http://bencrowder.net/files/vim-fu/
 let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
