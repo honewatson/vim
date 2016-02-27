@@ -123,4 +123,4 @@ ln -s ~/vim/tmux/node ~/.tmux/node
 cd ~/.vim/bundle/command-t/ruby/command-t
 ruby extconf.rb
 make
-
+echo 'alias tmux="TERM=screen-256color-bce tmux"' >> ~/.bashrc
