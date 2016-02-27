@@ -12,10 +12,11 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+" https://github.com/sjbach/lusty
+
 Plugin 'pangloss/vim-javascript'
 Plugin 'crusoexia/vim-javascript-lib'
 
-" https://github.com/sjbach/lusty
 " Autoformat > ,,a
 Plugin 'Chiel92/vim-autoformat'
 
@@ -125,15 +126,14 @@ Plugin 'sjl/gundo.vim'
 "Indent support
 Plugin 'tpope/vim-sleuth'
 
-Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-surround'
 " openbrowser by uri
 Plugin 'tyru/open-browser.vim'
 "A plugin for c
 "Plugin 'vim-scripts/a.vim'
 
 " Color Support
-"Plugin 'tomasr/molokai'
-Plugin 'crusoexia/vim-monokai'
+Plugin 'tomasr/molokai'
 
 " Color Support
 Plugin 'flazz/vim-colorschemes'
@@ -265,7 +265,7 @@ let g:UltiSnipsEditSplit='vertical'
 " 
 " Colorscheme Setup
 "
-colorscheme monokai
+colorscheme molokai
 syntax on
 "let g:molokai_original = 1
 let g:rehash256 = 1
