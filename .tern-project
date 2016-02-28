@@ -1,12 +1,19 @@
 {
-  "libs": [
-  ],
-  "loadEagerly": [
-  ],
-  "plugins": {
-    "requirejs": {
-      "baseURL": "./",
-      "paths": {}
+    "ecmaVersion": 6,
+    "libs": [
+        "browser",
+        "jquery"
+    ],
+    "loadEagerly": [],
+	"dontLoad": [],
+    "plugins": {
+        "complete_strings": {},
+        "node": {},
+        "requirejs": {},
+        "modules": {},
+        "es_modules": {},
+        "doc_comment": {
+            "fullDocs": true
+        }
     }
-  }
 }
