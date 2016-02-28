@@ -122,7 +122,8 @@ Plugin 'sjl/gundo.vim'
 "Indent support
 Plugin 'tpope/vim-sleuth'
 
-"Plugin 'tpope/vim-surround'
+" Surround quotes with cs`
+Plugin 'tpope/vim-surround'
 " openbrowser by uri
 Plugin 'tyru/open-browser.vim'
 "A plugin for c
