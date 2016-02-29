@@ -152,7 +152,6 @@ Plugin 'heavenshell/vim-jsdoc'
 Plugin 'marijnh/tern_for_vim'
 
 
-
 " File/Folder Nav
 Plugin 'scrooloose/nerdtree'
 
@@ -370,11 +369,19 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" Tmux settings
+let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
+let g:tmuxify_run = {'js':'node'}
+
+" Autopep settings
+let g:autopep8_disable_show_diff=1
+
+" Javascript settings
+let g:jsdoc_enable_es6=1
+
 " Opens a new tab with the current buffer's path
 " " Super useful when editing files in the same directory
-nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
 map <leader>nn :Autopep8<cr>
-let g:autopep8_disable_show_diff=1
 map ;;t :tabedit<space>
 map ;;l A
 imap ;;l <Esc>A
@@ -417,8 +424,10 @@ nmap <Leader>7 :TagbarToggle<CR>
 map ,,a :Autoformat<CR>
 map <Leader>N :bnext<CR>
 map <Leader>B :bprevious<CR>
+
+" <Leader>t - ,t mappings
 map <Leader>td :TernDef<CR>
+nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
+nmap <Leader>tj :JsDoc<CR>
 " :so $MYVIMRC
 " http://bencrowder.net/files/vim-fu/
-let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
-let g:tmuxify_run = {'js':'node'}
