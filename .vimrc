@@ -64,6 +64,9 @@ Plugin 'jmcantrell/vim-virtualenv'
 " Golang Lint etc
 Plugin 'fatih/vim-go'
 
+" No more :set paste
+Plugin 'ConradIrwin/vim-bracketed-paste'
+
 " Autocompletion tool
 Plugin 'Valloric/YouCompleteMe'
 
