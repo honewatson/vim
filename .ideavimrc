@@ -18,3 +18,4 @@ nmap <Leader>d :action GotoDeclaration<CR>
 nmap <Leader>r :action GotoNextError<CR>
 " Back <M-[>
 " QuickJump <M-;>
+map s :action AceJumpAction<CR>
