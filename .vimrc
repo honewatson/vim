@@ -16,6 +16,10 @@ call vundle#begin()
 " Autoformat > ,,a
 Plugin 'Chiel92/vim-autoformat'
 
+Plugin 'leafo/moonscript-vim'
+
+Plugin 'chaquotay/ftl-vim-syntax'
+
 " reStructured Text
 Plugin 'Rykka/riv.vim'
 
@@ -51,7 +55,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tell-k/vim-autopep8'
 
 " Fast file navigation
-Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " Pass the path to set the runtimepath properly.( Using vim-emmet instead because of surround )
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
@@ -63,6 +67,9 @@ Plugin 'jmcantrell/vim-virtualenv'
 " " like <leader>w saves the current file
 " Golang Lint etc
 Plugin 'fatih/vim-go'
+
+" No more :set paste
+Plugin 'ConradIrwin/vim-bracketed-paste'
 
 " Autocompletion tool
 Plugin 'Valloric/YouCompleteMe'
@@ -93,7 +100,7 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'justinmk/vim-sneak'
 
 "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-"Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 "Mercurial
 Plugin 'ludovicchabant/vim-lawrencium'
@@ -122,7 +129,7 @@ Plugin 'sjl/gundo.vim'
 "Indent support
 Plugin 'tpope/vim-sleuth'
 
-"Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 " openbrowser by uri
 Plugin 'tyru/open-browser.vim'
 "A plugin for c
@@ -138,16 +145,25 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'nvie/vim-flake8'
 
 " Beautify JS
+Plugin 'pangloss/vim-javascript'
+Plugin 'crusoexia/vim-javascript-lib'
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'othree/jspc.vim'
+Plugin 'moll/vim-node'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'ramitos/jsctags'
+Plugin 'osyo-manga/vim-watchdogs'
+Plugin 'othree/jsdoc-syntax.vim'
+Plugin 'heavenshell/vim-jsdoc'
+" Code completion for JS
+Plugin 'marijnh/tern_for_vim'
+
 
 " File/Folder Nav
 Plugin 'scrooloose/nerdtree'
 
 " Autopairs tool
 Plugin 'jiangmiao/auto-pairs'
-
-" Code completion for JS
-Plugin 'marijnh/tern_for_vim'
 
 " Silver Searcher SUpport
 Plugin 'rking/ag.vim'
@@ -209,10 +225,20 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_checker_args='--ignore=W191,W291,W292,W293,W391,W503,W601,W602,W603,W604'
+let g:syntastic_javascript_checkers = ['eslint']
+
+" Override eslint with local version where necessary.
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+  let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+  let g:syntastic_javascript_eslint_exec = local_eslint
+endif
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set ttimeoutlen=50
@@ -292,18 +318,29 @@ set number
 
 "
 " beginsetup ctrlp and Silver Searcher setup
-"
-"let g:ctrlp_use_caching = 0
-"if executable('ag')
-	"set grepprg=ag\ --nogroup\ --nocolor
 
-	"let g:ctrlp_user_command = 'ag %s -l --nocolor  -g ""'
-"else
-	"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-	"let g:ctrlp_prompt_mappings = {
-		"\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-		"\ }
-"endif
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  set grepprg=ag\ --nogroup\ --nocolor
+  "let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git"'
+  " ag is fast enough that CtrlP doesn't need to cache
+  "let g:ctrlp_use_caching = 0
+else
+  " Fall back to using git ls-files if Ag is not available
+  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+endif
+
+" Default to filename searches - so that appctrl will find application
+" controller
+"let g:ctrlp_by_filename = 1
+
+" Don't jump to already open window. This is annoying if you are maintaining
+" several Tab workspaces and want to open two windows into the same file.
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+
+
 " endsetup ctrlp
 
 " Set to auto read when a file is changed from the outside
@@ -349,11 +386,19 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" Tmux settings
+let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
+let g:tmuxify_run = {'js':'node'}
+
+" Autopep settings
+let g:autopep8_disable_show_diff=1
+
+" Javascript settings
+let g:jsdoc_enable_es6=1
+
 " Opens a new tab with the current buffer's path
 " " Super useful when editing files in the same directory
-nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
 map <leader>nn :Autopep8<cr>
-let g:autopep8_disable_show_diff=1
 map ;;t :tabedit<space>
 map ;;l A
 imap ;;l <Esc>A
@@ -396,7 +441,10 @@ nmap <Leader>7 :TagbarToggle<CR>
 map ,,a :Autoformat<CR>
 map <Leader>N :bnext<CR>
 map <Leader>B :bprevious<CR>
+
+" <Leader>t - ,t mappings
+map <Leader>td :TernDef<CR>
+nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
+nmap <Leader>tj :JsDoc<CR>
 " :so $MYVIMRC
 " http://bencrowder.net/files/vim-fu/
-let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
-let g:tmuxify_run = {'js':'node'}
