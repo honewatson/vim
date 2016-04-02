@@ -16,6 +16,8 @@ call vundle#begin()
 " Autoformat > ,,a
 Plugin 'Chiel92/vim-autoformat'
 
+Plugin 'leafo/moonscript-vim'
+
 Plugin 'chaquotay/ftl-vim-syntax'
 
 " reStructured Text
