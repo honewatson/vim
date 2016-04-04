@@ -446,5 +446,8 @@ map <Leader>B :bprevious<CR>
 map <Leader>td :TernDef<CR>
 nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
 nmap <Leader>tj :JsDoc<CR>
+map <Leader>mm :set mouse=a<cr>
+map <Leader>mo :set mouse=<cr>
+
 " :so $MYVIMRC
 " http://bencrowder.net/files/vim-fu/
