@@ -27,8 +27,8 @@ Plugin 'Rykka/riv.vim'
 Plugin 'Rykka/InstantRst'
 
 " Nim Lint
-Plugin 'zah/nim.vim'
-
+"Plugin 'zah/nim.vim'
+Plugin 'baabelfish/nvim-nim'
 " Less Lint
 Plugin 'groenewege/vim-less'
 
