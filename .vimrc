@@ -14,6 +14,8 @@ call vundle#begin()
 
 " https://github.com/sjbach/lusty
 " Autoformat > ,,a
+Plugin 'kballard/vim-swift'
+
 Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'leafo/moonscript-vim'
