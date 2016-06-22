@@ -5,181 +5,109 @@ filetype off                  " required
 " For lustyExplorer
 "
 set hidden
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-" https://github.com/sjbach/lusty
-" Autoformat > ,,a
-"Plugin 'toyamarinyon/vim-swift'
 
-Plugin 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css', 'js']}
 
-Plugin 'leafo/moonscript-vim'
+Plug 'leafo/moonscript-vim', {'for': 'moonscript'}
 
-Plugin 'chaquotay/ftl-vim-syntax'
+Plug 'chaquotay/ftl-vim-syntax', {'for': 'freemarker'}
 
 " reStructured Text
-Plugin 'Rykka/riv.vim'
+Plug 'Rykka/riv.vim', {'for': 'reStructuredText'}
 
 " Display reStructured Text
-Plugin 'Rykka/InstantRst'
+Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
 
 " Nim Lint
-"Plugin 'zah/nim.vim'
-Plugin 'baabelfish/nvim-nim'
+"Plug 'zah/nim.vim'
+Plug 'baabelfish/nvim-nim', {'for': 'nim'}
 " Less Lint
-Plugin 'groenewege/vim-less'
+Plug 'groenewege/vim-less', {'for': 'less'}
 
-" Fast and Easy Find and Replace Across Multiple Files
-" ,vv ( Grep for word under cursor  )
-Plugin 'dkprice/vim-easygrep'
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+"Plug 'dkprice/vim-easygrep'
 
-"
-" For file buffer fast search
-"
-Plugin 'vim-scripts/LustyExplorer'
+Plug 'Valloric/YouCompleteMe'
 
-" Interact with different tmux panes directly from Vim ( REPL )
-Plugin 'epeli/slimux'
-Plugin 'honewatson/vim-tmuxify'
-Plugin 'christoomey/vim-tmux-navigator'
 
-" Git support
-Plugin 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
 
-"Python code quality
-Plugin 'tell-k/vim-autopep8'
+Plug 'bling/vim-airline'
 
-" Fast file navigation
-"Plugin 'git://git.wincent.com/command-t.git'
-" Pass the path to set the runtimepath properly.( Using vim-emmet instead because of surround )
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}"
-
-" Python virtualenv support
-Plugin 'jmcantrell/vim-virtualenv'
-
-" " like <leader>w saves the current file
-" Golang Lint etc
-Plugin 'fatih/vim-go'
-
-" No more :set paste
-Plugin 'ConradIrwin/vim-bracketed-paste'
-
-" Autocompletion tool
-Plugin 'Valloric/YouCompleteMe'
-
-" Syntastic is a syntax checking plugin for Vim 
-Plugin 'scrooloose/syntastic'
-
-"vim-airline Lean & mean status/tabline for vim that's light as air.
-Plugin 'bling/vim-airline'
-
-" Snippets plugin that works with YouCompleteMe 
-Plugin 'SirVer/ultisnips'
-
-"Plugin 'edsono/vim-matchit' 
-"" Json helper Plugin
-Plugin 'elzr/vim-json'
-
-" Snippet manager that works with UltiSnips 
-Plugin 'honza/vim-snippets'
-
-" Docker file linting 
-Plugin 'honza/dockerfile.vim'
-
-Plugin 'chase/vim-ansible-yaml'
-
+Plug 'elzr/vim-json'
 "vim-sneak Sneak is a minimalist, versatile Vim motion plugin that jumps to
 "any location specified by two characters.
-Plugin 'justinmk/vim-sneak'
+Plug 'justinmk/vim-sneak'
 
 "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'kien/ctrlp.vim'
-
-"Mercurial
-Plugin 'ludovicchabant/vim-lawrencium'
+Plug 'kien/ctrlp.vim'
 
 "Tagbar is a Vim plugin that provides an easy way to browse the tags of the
 "current file and get an overview of its structure. 
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 "vim signifiy It uses signs to indicate added, modified and removed lines based on data of
 "an underlying version control system.
-Plugin 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
 
-" Markdown linting and support
-Plugin 'plasticboy/vim-markdown'
+" Git support
+Plug 'tpope/vim-fugitive'
+
+" " like <leader>w saves the current file
+" Golang Lint etc
+Plug 'fatih/vim-go', {'for': 'golang'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " Comment support
 " <leader>c<space> Toggle
 " <leader>cc Comment out
 " <leader>cu Uncomment
-Plugin 'The-NERD-Commenter'
-
-"Gundo.vim is Vim plugin to visualize your Vim undo tree.
-Plugin 'sjl/gundo.vim'
-
-"Plugin 'tpope/vim-fugitive'"
+Plug 'The-NERD-Commenter'
 "Indent support
-Plugin 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 
-Plugin 'tpope/vim-surround'
-" openbrowser by uri
-Plugin 'tyru/open-browser.vim'
-"A plugin for c
-"Plugin 'vim-scripts/a.vim'
+Plug 'tpope/vim-surround'
 
 " Color Support
-Plugin 'tomasr/molokai'
+Plug 'tomasr/molokai'
 
 " Color Support
-Plugin 'flazz/vim-colorschemes'
-
-"PEP8 Support
-Plugin 'nvie/vim-flake8'
-
+Plug 'flazz/vim-colorschemes'
 " Beautify JS
-Plugin 'pangloss/vim-javascript'
-Plugin 'crusoexia/vim-javascript-lib'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'othree/jspc.vim'
-Plugin 'moll/vim-node'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'ramitos/jsctags'
-Plugin 'osyo-manga/vim-watchdogs'
-Plugin 'othree/jsdoc-syntax.vim'
-Plugin 'heavenshell/vim-jsdoc'
+Plug 'pangloss/vim-javascript', {'for': ['html', 'js']
+Plug 'crusoexia/vim-javascript-lib', {'for': ['html', 'js']
+Plug 'maksimr/vim-jsbeautify', {'for': ['html', 'js']
+Plug 'othree/jspc.vim', {'for': ['html', 'js']
+Plug 'moll/vim-node', {'for': ['html', 'js']
+Plug 'ludovicchabant/vim-gutentags', {'for': ['html', 'js']
+Plug 'ramitos/jsctags', {'for': ['html', 'js']
+Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'js']
+Plug 'othree/jsdoc-syntax.vim', {'for': ['html', 'js']
+Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'js']
 " Code completion for JS
-Plugin 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim', {'for': ['html', 'js']
 
 
 " File/Folder Nav
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Autopairs tool
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " Silver Searcher SUpport
-Plugin 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
 " REact Snippets
-Plugin 'justinj/vim-react-snippets'
+Plug 'justinj/vim-react-snippets', {'for': 'js'}
 
 " Emmet auto completion 
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': ['html', 'js']}
+call plug#end()
 
-"use sneak Plugin 'easymotion/vim-easymotion' 
-" Ctag Autofile support
-"Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-easytags'
+
 set showcmd
 "let mapleader = "<space>"
 let g:ag_working_path_mode="r"
@@ -265,30 +193,6 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsListSnippets="<c-L>"
 let g:UltiSnipsEditSplit='vertical'
 
-"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-"let g:user_emmet_leader_key='<C-Z>'
-""EasyMotion REPLACED WITH SNEAK
-"let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Bi-directional find motion
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-"nmap s <Plug>(easymotion-s)
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-"nmap s <Plug>(easymotion-s2)
-
-" Turn on case insensitive feature
-"let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-"map <Leader>j <Plug>(easymotion-j)
-"map <Leader>k <Plug>(easymotion-k)
-
-" 
-" Colorscheme Setup
-"
 colorscheme molokai
 syntax on
 "let g:molokai_original = 1
@@ -298,20 +202,9 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 "
-call vundle#end()            " required
 filetype plugin indent on    " required
- 
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
+
 
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -389,11 +282,11 @@ set si "Smart indent
 set wrap "Wrap lines
 
 " Tmux settings
-let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
-let g:tmuxify_run = {'js':'node'}
+"let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
+"let g:tmuxify_run = {'js':'node'}
 
 " Autopep settings
-let g:autopep8_disable_show_diff=1
+"let g:autopep8_disable_show_diff=1
 
 " Javascript settings
 let g:jsdoc_enable_es6=1
@@ -418,11 +311,11 @@ map <Leader>st :SyntasticToggleMode<cr>
 map <Leader>ss :SyntasticToggleMode<cr>:w!<cr>
 map <Leader>gc :Git commit -a -m "
 map <Leader>gp :Git push<cr>
-map <Leader>sl :SlimuxREPLSendLine<CR>
-map <Leader>slb :SlimuxREPLSendBuffer<CR>
-vmap <Leader>sl :SlimuxREPLSendSelection<CR>
-map <Leader>sla :SlimuxShellLast<CR>
-map <Leader>slk :SlimuxSendKeysLast<CR>
+"map <Leader>sl :SlimuxREPLSendLine<CR>
+"map <Leader>slb :SlimuxREPLSendBuffer<CR>
+"vmap <Leader>sl :SlimuxREPLSendSelection<CR>
+"map <Leader>sla :SlimuxShellLast<CR>
+"map <Leader>slk :SlimuxSendKeysLast<CR>
 " let g:user_emmet_leader_key='<Leader>e'
 map <Leader>e <c-y>,
 map ;;ag :Ag<space>
@@ -437,7 +330,7 @@ map <Leader>wk <c-w>k
 map <Leader>wl <c-w>l
 map <Leader>wh <c-w>h
 map ;;help :!cat ~/vim/help.txt<cr>
-map ;;pu :!pythoscope %<cr>
+"map ;;pu :!pythoscope %<cr>
 map ;;s <Esc>^i
 nmap <Leader>7 :TagbarToggle<CR>
 map ,,a :Autoformat<CR>
@@ -450,6 +343,3 @@ nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
 nmap <Leader>tj :JsDoc<CR>
 map <Leader>mm :set mouse=a<cr>
 map <Leader>mo :set mouse=<cr>
-
-" :so $MYVIMRC
-" http://bencrowder.net/files/vim-fu/
