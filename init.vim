@@ -5,7 +5,9 @@ filetype off                  " required
 " For lustyExplorer
 "
 set hidden
-call plug#begin('~/.vim/plugged')
+set rtp+=/Users/hwatson/.config/nvim/autoload/plug.vim
+
+call plug#begin('/Users/hwatson/.config/nvim/plugged')
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -193,7 +195,7 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsListSnippets="<c-L>"
 let g:UltiSnipsEditSplit='vertical'
 
-colorscheme molokai
+"colorscheme molokai
 syntax on
 "let g:molokai_original = 1
 let g:rehash256 = 1

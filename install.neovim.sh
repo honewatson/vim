@@ -12,7 +12,7 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 
 cp ~/vim/init.vim ~/.config/nvim/init.vim
 
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 
 cd ~/.vim/plugged/YouCompleteMe && git submodule update --init --recursive \
   && python install.py --gocode-completer --tern-completer
