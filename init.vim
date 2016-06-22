@@ -77,18 +77,18 @@ Plug 'tomasr/molokai'
 " Color Support
 Plug 'flazz/vim-colorschemes'
 " Beautify JS
-Plug 'pangloss/vim-javascript', {'for': ['html', 'js']
-Plug 'crusoexia/vim-javascript-lib', {'for': ['html', 'js']
-Plug 'maksimr/vim-jsbeautify', {'for': ['html', 'js']
-Plug 'othree/jspc.vim', {'for': ['html', 'js']
-Plug 'moll/vim-node', {'for': ['html', 'js']
-Plug 'ludovicchabant/vim-gutentags', {'for': ['html', 'js']
-Plug 'ramitos/jsctags', {'for': ['html', 'js']
-Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'js']
-Plug 'othree/jsdoc-syntax.vim', {'for': ['html', 'js']
-Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'js']
+Plug 'pangloss/vim-javascript', {'for': ['html', 'js']}
+Plug 'crusoexia/vim-javascript-lib', {'for': ['html', 'js']}
+Plug 'maksimr/vim-jsbeautify', {'for': ['html', 'js']}
+Plug 'othree/jspc.vim', {'for': ['html', 'js']}
+Plug 'moll/vim-node', {'for': ['html', 'js']}
+Plug 'ludovicchabant/vim-gutentags', {'for': ['html', 'js']}
+Plug 'ramitos/jsctags', {'for': ['html', 'js']}
+Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'js']}
+Plug 'othree/jsdoc-syntax.vim', {'for': ['html', 'js']}
+Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'js']}
 " Code completion for JS
-Plug 'marijnh/tern_for_vim', {'for': ['html', 'js']
+Plug 'marijnh/tern_for_vim', {'for': ['html', 'js']}
 
 
 " File/Folder Nav
