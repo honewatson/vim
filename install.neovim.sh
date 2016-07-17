@@ -14,5 +14,5 @@ cp ~/vim/init.vim ~/.config/nvim/init.vim
 
 vim +PlugInstall +qall
 
-cd ~/.vim/plugged/YouCompleteMe && git submodule update --init --recursive \
+cd ~/.config/nvim/plugged/YouCompleteMe && git submodule update --init --recursive \
   && python install.py --gocode-completer --tern-completer
