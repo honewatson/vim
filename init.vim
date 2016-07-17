@@ -11,6 +11,7 @@ call plug#begin('/Users/hwatson/.config/nvim/plugged')
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
+Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'js'}
 
 Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css', 'js']}
 
