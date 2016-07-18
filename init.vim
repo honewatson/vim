@@ -1,14 +1,11 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-set cursorline
 "
 " For lustyExplorer
 "
 set hidden
-set rtp+=/Users/hwatson/.config/nvim/autoload/plug.vim
-
-call plug#begin('/Users/hwatson/.config/nvim/plugged')
+set rtp+=~/.config/nvim/autoload/plug.vim
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -196,7 +193,8 @@ let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsListSnippets="<c-L>"
 let g:UltiSnipsEditSplit='vertical'
-
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $HOME.'/vim/UltiSnips']
+let g:UltiSnipsSnippetsDir=$HOME.'/vim/UltiSnips'
 colorscheme molokai
 syntax on
 "let g:molokai_original = 1
@@ -350,3 +348,10 @@ map <Leader>mo :set mouse=<cr>
 map <Leader>ds :CtrlPBufTag<cr>
 map <Leader>dd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <Leader>df <c-p>
+
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+set cursorline
+hi CursorLine cterm=NONE ctermbg=235
+hi Visual cterm=NONE ctermbg=192 ctermfg=black
+
