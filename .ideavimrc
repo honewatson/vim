@@ -14,8 +14,10 @@ nmap ;u :u<cr>
 imap zzu <Esc>:u<cr>
 nmap <Leader>n :action BrowseWordAtCaretPlugin.Next<CR>
 nmap <Leader>p :action BrowseWordAtCaretPlugin.Previous<CR>
-nmap <Leader>d :action GotoDeclaration<CR>
+nmap <Leader>dd :action GotoDeclaration<CR>
 nmap <Leader>r :action GotoNextError<CR>
 " Back <M-[>
 " QuickJump <M-;>
 map s :action AceJumpAction<CR>
+map <Leader>ds :action GotoSymbol<CR>
+map <Leader>df :action GotoFile<CR>

@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+set cursorline
 "
 " For lustyExplorer
 "
@@ -148,7 +149,7 @@ let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 1
-map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "
 "Syntastic
@@ -156,9 +157,9 @@ map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_checker_args='--ignore=W191,W291,W292,W293,W391,W503,W601,W602,W603,W604'
@@ -346,3 +347,6 @@ nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
 nmap <Leader>tj :JsDoc<CR>
 map <Leader>mm :set mouse=a<cr>
 map <Leader>mo :set mouse=<cr>
+map <Leader>ds :CtrlPBufTag<cr>
+map <Leader>dd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <Leader>df <c-p>
