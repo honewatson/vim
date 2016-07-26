@@ -116,6 +116,8 @@ let g:sneak#streak = 1
 let g:tagbar_autofocus = 1
 " All of your Plugins must be added before the following line
 
+map <c-j> :YcmCompleter GetDoc<CR>
+map <c-k> <c-w>z
 "
 " Autoformat setup
 "
@@ -354,4 +356,3 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set cursorline
 hi CursorLine cterm=NONE ctermbg=235
 hi Visual cterm=NONE ctermbg=192 ctermfg=black
-
