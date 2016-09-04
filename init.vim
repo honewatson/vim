@@ -4,7 +4,20 @@ filetype off                  " required
 " For lustyExplorer
 "
 set hidden
-set rtp+=~/.config/nvim/autoload/plug.vim
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    " Do Mac stuff here  
+    set rtp+=/Users/hwatson/.config/nvim/autoload/plug.vim
+    call plug#begin('/Users/hwatson/.config/nvim/plugged')
+  else
+    set rtp+=~/.config/nvim/autoload/plug.vim
+    +call plug#begin('~/.config/nvim/plugged')
+  endif
+
+endif
+
+
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
