@@ -11,9 +11,11 @@ if has("unix")
     set rtp+=/Users/hwatson/.config/nvim/autoload/plug.vim
     call plug#begin('/Users/hwatson/.config/nvim/plugged')
   else
-    set rtp+=~/.config/nvim/autoload/plug.vim
-    +call plug#begin('~/.config/nvim/plugged')
   endif
+
+    set rtp+=/Users/hwatson/.config/nvim/autoload/plug.vim
+    call plug#begin('~/.config/nvim/plugged')
+  else
 
 endif
 
