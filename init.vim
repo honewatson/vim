@@ -25,7 +25,7 @@ Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'js'}
 
 Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css', 'js']}
 
-Plug 'leafo/moonscript-vim', {'for': 'moonscript'}
+Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
 
 Plug 'chaquotay/ftl-vim-syntax', {'for': 'freemarker'}
 
