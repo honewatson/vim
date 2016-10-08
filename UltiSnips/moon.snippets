@@ -1,0 +1,44 @@
+snippet ltemp "Lapis Template"
+$1 = () =>
+	render_html ->
+		$2
+endsnippet
+
+snippet lcsingle "Lapis Component Single"
+queries = require "queries"
+import render_html from require "lapis.html"
+import notNil from require "utils"
+
+key = () =>
+  ${1:@req.parsed_url.path}
+
+query = () =>
+  @$2 = @db.query queries.$3 @params.id
+
+html = () =>
+  render_html ->
+    div class: "$4", ->
+		$5
+
+export { :key, :query, :html }
+endsnippet
+
+snippet lclist "Lapis Component List"
+queries = require "queries"
+import render_html from require "lapis.html"
+import notNil from require "utils"
+
+key = () =>
+  ${1:@req.parsed_url.path}
+
+query = () =>
+  @$2 = @db.query $3
+
+html = () =>
+  render_html ->
+    div class: "$4", ->
+      for post in *@$2
+        div ->
+			$5
+export { :key, :query, :html }
+endsnippet
