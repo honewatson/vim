@@ -83,3 +83,14 @@ endsnippet
 snippet athr "assert.throws"
 assert.throws(() => $1, $2);
 endsnippet
+
+snippet intext "Input Text Flat Model"
+<label for="${1:name}">
+	${2:Title}
+	<input type="text" name="$1" value="${model.$1}">
+</label>
+endsnippet
+
+snippet inhidden "Input Hidden"
+<input type="hidden" name="${1:name}" $value="${model.$1}" />
+endsnippet
