@@ -369,3 +369,5 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set cursorline
 hi CursorLine cterm=NONE ctermbg=235
 hi Visual cterm=NONE ctermbg=192 ctermfg=black
+
+let g:vim_markdown_folding_disabled = 1
