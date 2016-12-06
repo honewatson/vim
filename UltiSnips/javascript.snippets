@@ -94,3 +94,27 @@ endsnippet
 snippet inhidden "Input Hidden"
 <input type="hidden" name="${1:name}" $value="${model.$1}" />
 endsnippet
+
+global !p
+import jinja2
+loader = jinja2.FileSystemLoader('/Users/hwatson/vim/templates')
+env = jinja2.Environment(loader=loader)
+def index_templ(t):
+	index = env.get_template('index.html')
+	return index.render(var1=t[1], var2=t[2])
+
+def index_test_templ(t):
+	index_test = env.get_template('index-test.html')
+	f = open('./tests/%s.js' % t[1].lower(), 'w')
+	f.write(index_test.render(var1=t[1], var2=t[2]))
+	f.close()
+endglobal
+
+snippet tmplt "Jinja2 Test"
+// $1 $2
+`!p
+snip.rv = index_templ(t)
+if t[2]:
+	index_test_templ(t)
+`
+endsnippet
