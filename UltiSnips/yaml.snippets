@@ -7,10 +7,155 @@ snippet tssite "Site for Config"
 		- intranet.monash.edu.au/$2
 endsnippet
 snippet tssiteu "Site for Config"
+
 - site:
 	name: $1 
 	folder: $2
 	urls:
 		- mon-cm.clients.squiz.net/$3
 		- intranet.monash.edu.au/$3
+
+endsnippet
+global !p
+import os
+from slugify import slugify
+endglobal
+snippet rpage "Raw Page"
+
+- "$1":
+	type: page
+	link_type: 2
+	page_contents:
+		$2:
+			type: raw
+			content-file: ./global/nested-content/html/`!p snip.rv = slugify(t[1])`.html
+`!p
+if t[2]:
+	fname = '%s/global/nested-content/html/%s.html' % (os.getcwd(), slugify(t[1]))
+	f = open(fname, 'w')
+	f.write('\n')
+	f.close();
+
+`
+
+endsnippet
+
+snippet folder "Folder"
+
+- "$1":
+    type: folder
+    children:
+    # $2
+
+endsnippet
+
+
+snippet container "Container"
+
+"$1";:
+    type: raw
+    content-file: ./global/nested-content/html/`!p snip.rv = slugify(t[1])`.html
+    # $2
+`!p
+if t[2]:
+	fname = '%s/global/nested-content/html/%s.html' % (os.getcwd(), slugify(t[1]))
+	f = open(fname, 'w')
+	f.write('\n')
+	f.close();
+
+`
+
+endsnippet
+
+snippet alf "Asset Listing Format"
+
+"$1":
+    "$2":
+	    type: raw
+	    content-file: ./global/nested-content/asset-listings/$3/`!p snip.rv = slugify(t[1])`.html
+	    # $4
+`!p
+if t[4]:
+	fname = '%s/global/nested-content/asset-listings/%s.html' % (os.getcwd(), t[2])
+	f = open(fname, 'w')
+	f.write('\n')
+	f.close();
+
+`
+endsnippet
+
+snippet aln "Asset Listing Nested"
+
+"$1":
+    type: nested
+    paint_with: raw
+    nested_asset: "{{ $2 }}"
+
+endsnippet
+
+snippet alc "Asset Listing Container"
+
+"$1":
+    type: raw
+    content-file: ./global/nested-content/asset-listings/$2/`!p snip.rv = slugify(t[1])`.html
+    # $3
+`!p
+if t[3]:
+	fname = '%s/global/nested-content/asset-listings/%s.html' % (os.getcwd(), t[2])
+	f = open(fname, 'w')
+	f.write('\n')
+	f.close();
+
+`
+
+endsnippet
+
+snippet al "Asset Listing"
+
+- "$1":
+    type: asset-listing
+    statuses:
+        - under_construction
+        - live
+    types:
+        - page_standard
+        - data_record
+        - thumbnail
+        - image
+    root_node: 1
+
+    page_contents:
+        "$2":
+            type: raw
+            content-file: ./global/nested-content/asset-listings/`!p snip.rv = slugify(t[1])`/page-contents.html
+    no_results:
+        "$3":
+            type: raw
+            content-file: ./global/nested-content/asset-listings/`!p snip.rv = slugify(t[1])`/no-results.html
+    type_formats:
+        default_format:
+            "$4":
+                type: raw
+                content-file: ./global/nested-content/asset-listings/`!p snip.rv = slugify(t[1])`/default-format.html
+`!p
+if t[2]:
+    basename = '%s/global/nested-content/asset-listings/%s' % (os.getcwd(), slugify(t[1]))
+    if not os.path.exists(basename):
+        os.makedirs(basename)
+    pages = ['page-contents.html', 'no-results.html', 'default-format.html']
+    for page in pages:
+        fname = "%s/%s" % (basename, page)
+        f = open(fname, 'w')
+        f.write('\n')
+        f.close();
+`
+
+endsnippet
+
+snippet ps "Page Simple"
+
+- $1:
+    type: page
+    link_type: ${2:1}
+
 endsnippet

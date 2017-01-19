@@ -318,7 +318,7 @@ imap ;;k <Esc>A<cr>
 imap ;;j <Esc>}A<cr>
 imap ;;u <Esc>:u<cr>
 map ;;u :u<cr>
-imap vv <Esc>
+imap zzn <Esc>
 imap ;;w <Esc>:w!<cr>
 map ;;w <Esc>:w!<cr>
 imap ;;wq <Esc>:wq!<cr>
