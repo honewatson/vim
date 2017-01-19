@@ -177,7 +177,6 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_checker_args='--ignore=W191,W291,W292,W293,W391,W503,W601,W602,W603,W604'
 let g:syntastic_javascript_checkers = ['eslint']
-
 " Override eslint with local version where necessary.
 let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
 if matchstr(local_eslint, "^\/\\w") == ''
@@ -320,7 +319,7 @@ imap ;;k <Esc>A<cr>
 imap ;;j <Esc>}A<cr>
 imap ;;u <Esc>:u<cr>
 map ;;u :u<cr>
-imap vv <Esc>
+imap zzn <Esc>
 imap ;;w <Esc>:w!<cr>
 map ;;w <Esc>:w!<cr>
 imap ;;wq <Esc>:wq!<cr>
@@ -371,3 +370,5 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set cursorline
 hi CursorLine cterm=NONE ctermbg=235
 hi Visual cterm=NONE ctermbg=192 ctermfg=black
+
+let g:vim_markdown_folding_disabled = 1

@@ -1,4 +1,4 @@
-imap vv <Esc>
+imap zzn <Esc>
 let mapleader = ","
 let g:mapleader = ","
 map <Leader>e :action SurroundWithEmmet<CR>
@@ -8,10 +8,15 @@ map <Leader>t :action GotoFile<CR>
 imap zzl <Esc>A
 imap zzk <Esc>A<cr>
 imap zzj <Esc>}A<cr>
+imap ;;l <Esc>A
+imap ;;k <Esc>A<cr>
+imap ;;j <Esc>}A<cr>
+imap ;;u <Esc>:u<cr>
 imap zzej <Esc>:action EmmetNextEditPoint<CR>i
 imap zzek <Esc>:action EmmetPreviousEditPoint<CR>i
 nmap ;u :u<cr>
 imap zzu <Esc>:u<cr>
+nmap zzu <Esc>:u<cr>
 nmap <Leader>n :action BrowseWordAtCaretPlugin.Next<CR>
 nmap <Leader>p :action BrowseWordAtCaretPlugin.Previous<CR>
 nmap <Leader>dd :action GotoDeclaration<CR>
