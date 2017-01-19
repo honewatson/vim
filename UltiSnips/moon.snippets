@@ -42,3 +42,60 @@ html = () =>
 			$5
 export { :key, :query, :html }
 endsnippet
+
+snippet route "Lapis Route"
+
+"$2": respond to {
+    $3: capture_errors_json json_params =>
+      $4
+  }
+endsnippet
+
+snippet routeM "Lapis More Complete Route"
+  "/$2": respond_to {
+      POST: capture_errors_json json_params =>
+	assert_valid  @params, {
+	  { "$2name", exists: true, min_length: 8 }
+	}
+	create_$2 = ->
+	  $3\create {
+	    $2name: @params.$2name
+	}
+	ok, $2 = pcall create_$2
+	--json: @params
+	if type($2) == 'string' and string.find($2, "duplicate key")
+	  $2 = {errors: {"$3 #{@params.$2name} already exists!"}}
+	json: $2
+
+      PUT: capture_errors_json json_params =>
+	assert_valid  @params, {
+	  { "id", exists: true }
+	  { "$2name", exists: true, min_length: 8 }
+	}
+	$2 = $3\find @params.id
+	if $2
+	  $2.$2name = @params.$2name
+	  $2\update "$2name"
+	--json: @params
+	else
+	  $2 = {errors: {"No $2 found with id #{@params.id}"}}
+	json: $2
+  }
+  "/$2/search": respond_to {
+      POST: capture_errors_json json_params =>
+	$2 = $3\find $2name: @params.$2name
+	unless $2
+	  $2 = not_found "$3"
+	json: $2
+  }
+  "/$2/:id": respond_to {
+      DELETE: capture_errors_json json_params =>
+	$2 = $3\find @params.id
+	result = success!
+	if $2
+	  $2\delete!
+	unless $2
+	  result =  not_found "$3"
+	json: result
+  }
+endsnippet
