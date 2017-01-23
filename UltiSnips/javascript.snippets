@@ -84,6 +84,30 @@ snippet athr "assert.throws"
 assert.throws(() => $1, $2);
 endsnippet
 
+snippet fiinput "Basic Input"
+<label for="$1">
+	$2
+	<input type="${3:text}" id="$1" name="$1" value="$4" $5 />
+</label>
+endsnippet
+
+snippet fionly "Input Only"
+<input type="${1:hidden}" id="$2" name="$2" value="\${$3}" />
+endsnippet
+
+snippet fitextfield "Basic Textfield"
+<label for="$1">
+	$2
+	<textarea id="$1" name="$1"></textarea>
+</label>
+endsnippet
+
+snippet cnfacomponent "Conf Component Admin"
+
+import {default as `!p snip.rv = "%sAdmin%s" % (t[1], t[2].capitalize())`} from "../components/$1/admin/$2/component";
+
+endsnippet
+
 snippet intext "Input Text Flat Model"
 <label for="${1:name}">
 	${2:Title}

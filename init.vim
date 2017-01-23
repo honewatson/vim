@@ -238,9 +238,10 @@ if executable('ag')
   "let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git"'
   " ag is fast enough that CtrlP doesn't need to cache
   "let g:ctrlp_use_caching = 0
+  let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
 else
   " Fall back to using git ls-files if Ag is not available
-  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+  let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 endif
 
