@@ -164,6 +164,7 @@ let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 1
 "map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+
 "
 "Syntastic
 "
@@ -371,3 +372,5 @@ hi CursorLine cterm=NONE ctermbg=235
 hi Visual cterm=NONE ctermbg=192 ctermfg=black
 
 let g:vim_markdown_folding_disabled = 1
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
