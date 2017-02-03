@@ -9,10 +9,11 @@ map <Leader>,c<Space> :action CommentByLineComment<CR>
 imap zzl <Esc>A
 imap zzk <Esc>A<cr>
 imap zzj <Esc>}A<cr>
-imap ;;l <Esc>A
-imap ;;k <Esc>A<cr>
-imap ;;j <Esc>}A<cr>
-imap ;;u <Esc>:u<cr>
+imap zzu <Esc>:u<cr>
+"imap ;;l <Esc>A
+"imap ;;k <Esc>A<cr>
+"imap ;;j <Esc>}A<cr>
+"imap ;;u <Esc>:u<cr>
 imap zzej <Esc>:action EmmetNextEditPoint<CR>i
 imap zzek <Esc>:action EmmetPreviousEditPoint<CR>i
 nmap ;u :u<cr>
