@@ -2,10 +2,14 @@ imap zzn <Esc>
 let mapleader = ","
 let g:mapleader = ","
 map <Leader>e :action SurroundWithEmmet<CR>
-map <Leader>w :w!<cr>
+map zzw <Esc>:w!<cr>
+map <Leader>wl <c-w>l
+map <Leader>wj <c-w>j
+map <Leader>wh <c-w>h
+map <Leader>wk <c-w>k
 map <Leader>q :q!<cr>
 map <Leader>t :action GotoFile<CR>
-map <Leader>,c<Space> :action CommentByLineComment<CR>
+map <Leader>c<Space> :action CommentByLineComment<CR>
 imap zzl <Esc>A
 imap zzk <Esc>A<cr>
 imap zzj <Esc>}A<cr>
