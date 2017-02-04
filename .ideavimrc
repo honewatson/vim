@@ -14,6 +14,7 @@ imap zzl <Esc>A
 imap zzk <Esc>A<cr>
 imap zzj <Esc>}A<cr>
 imap zzu <Esc>:u<cr>
+imap zzw <Esc>:w!<CR>i
 "imap ;;l <Esc>A
 "imap ;;k <Esc>A<cr>
 "imap ;;j <Esc>}A<cr>
