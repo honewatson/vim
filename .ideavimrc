@@ -33,3 +33,4 @@ nmap <Leader>r :action GotoNextError<CR>
 map s :action AceAction<CR>
 map <Leader>ds :action GotoSymbol<CR>
 map <Leader>df :action GotoFile<CR>
+map <Leader>f :action ReformatCode<CR>
