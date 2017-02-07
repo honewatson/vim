@@ -26,13 +26,14 @@ imap zzu <Esc>:u<cr>
 nmap zzu <Esc>:u<cr>
 nmap <Leader>n :action BrowseWordAtCaretPlugin.Next<CR>
 nmap <Leader>p :action BrowseWordAtCaretPlugin.Previous<CR>
-nmap <Leader>dd :action GotoDeclaration<CR>
 nmap <Leader>r :action GotoNextError<CR>
 " Back <M-[>
 " QuickJump <M-;>
 map s :action AceAction<CR>
+nmap <Leader>dd :action GotoDeclaration<CR>
 map <Leader>ds :action GotoSymbol<CR>
 map <Leader>df :action GotoFile<CR>
 map <Leader>du :action FindUsages<CR>
 map <Leader>di :action FindInPath<CR>
 map <Leader>f :action ReformatCode<CR>
+map <Leader>dr :action ReplaceInPath<CR>
