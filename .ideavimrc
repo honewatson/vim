@@ -37,3 +37,4 @@ map <Leader>du :action FindUsages<CR>
 map <Leader>di :action FindInPath<CR>
 map <Leader>f :action ReformatCode<CR>
 map <Leader>dr :action ReplaceInPath<CR>
+map <Leader>b :action Back<CR>

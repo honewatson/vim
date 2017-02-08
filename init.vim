@@ -365,7 +365,7 @@ map <Leader>mo :set mouse=<cr>
 map <Leader>ds :CtrlPBufTag<cr>
 map <Leader>dd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <Leader>df <c-p>
-
+map <Leader>b <c-o>
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set cursorline
