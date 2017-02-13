@@ -27,6 +27,7 @@ nmap zzu <Esc>:u<cr>
 nmap <Leader>n :action BrowseWordAtCaretPlugin.Next<CR>
 nmap <Leader>p :action BrowseWordAtCaretPlugin.Previous<CR>
 nmap <Leader>r :action GotoNextError<CR>
+nmap <Space> <Esc>
 " Back <M-[>
 " QuickJump <M-;>
 map s :action AceAction<CR>
@@ -38,3 +39,5 @@ map <Leader>di :action FindInPath<CR>
 map <Leader>f :action ReformatCode<CR>
 map <Leader>dr :action ReplaceInPath<CR>
 map <Leader>b :action Back<CR>
+
+" '[[' '[{' '/;'
