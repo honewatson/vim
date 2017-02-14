@@ -59,6 +59,7 @@ Plug 'justinmk/vim-sneak'
 
 "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plug 'kien/ctrlp.vim'
+"Plug 'Shougo/denite.nvim'
 
 "Tagbar is a Vim plugin that provides an easy way to browse the tags of the
 "current file and get an overview of its structure. 
@@ -363,7 +364,7 @@ nmap <Leader>tj :JsDoc<CR>
 map <Leader>mm :set mouse=a<cr>
 map <Leader>mo :set mouse=<cr>
 map <Leader>ds :CtrlPBufTag<cr>
-map <Leader>dd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <Leader>dd :YcmCompleter GoToDefinition<CR>
 map <Leader>df <c-p>
 map <Leader>b <c-o>
 
