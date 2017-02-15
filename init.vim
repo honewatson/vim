@@ -1,15 +1,15 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-"
-" For lustyExplorer
-"
-set hidden
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    " Do Mac stuff here  
-    set rtp+=/Users/hwatson/.config/nvim/autoload/plug.vim
-    call plug#begin('/Users/hwatson/.config/nvim/plugged')
+  set nocompatible              " be iMproved, required
+  filetype off                  " required
+  "
+  " For lustyExplorer
+  "
+  set hidden
+  if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+      " Do Mac stuff here  
+      set rtp+=/Users/hwatson/.config/nvim/autoload/plug.vim
+      call plug#begin('/Users/hwatson/.config/nvim/plugged')
   else
   endif
 
@@ -315,12 +315,17 @@ let g:jsdoc_enable_es6=1
 " " Super useful when editing files in the same directory
 map <leader>nn :Autopep8<cr>
 map ;;t :tabedit<space>
-map ;;l A
-imap ;;l <Esc>A
-imap ;;k <Esc>A<cr>
-imap ;;j <Esc>}A<cr>
-imap ;;u <Esc>:u<cr>
-map ;;u :u<cr>
+"map ;;l A
+"imap ;;l <Esc>A
+"imap ;;k <Esc>A<cr>
+"imap ;;j <Esc>}A<cr>
+"imap ;;u <Esc>:u<cr>
+"map ;;u :u<cr>
+imap zzl <Esc>A
+imap zzk <Esc>A<cr>
+imap zzj <Esc>}A<cr>
+imap zzu <Esc>:u<cr>
+imap zzw <Esc>:w!<CR>i
 imap zzn <Esc>
 imap ;;w <Esc>:w!<cr>
 map ;;w <Esc>:w!<cr>
