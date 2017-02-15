@@ -88,12 +88,19 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 
 " Color Support
-Plug 'tomasr/molokai'
+"Plug 'tomasr/molokai'
+"Plug 'jacoborus/tender.vim'
+"Plug 'freeo/vim-kalisi'
 
 " Color Support
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
+Plug 'reewr/vim-monokai-phoenix'
 " Beautify JS
+
 Plug 'pangloss/vim-javascript', {'for': ['html', 'js']}
+let g:javascript_plugin_jsdoc = 1
+
+
 Plug 'crusoexia/vim-javascript-lib', {'for': ['html', 'js']}
 Plug 'maksimr/vim-jsbeautify', {'for': ['html', 'js']}
 Plug 'othree/jspc.vim', {'for': ['html', 'js']}
@@ -212,15 +219,32 @@ let g:UltiSnipsListSnippets="<c-L>"
 let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $HOME.'/vim/UltiSnips']
 let g:UltiSnipsSnippetsDir=$HOME.'/vim/UltiSnips'
-colorscheme molokai
+colorscheme monokai-phoenix
 syntax on
-let g:molokai_original = 1
-let g:rehash256 = 1
-if $COLORTERM == 'gnome-terminal'
-	set t_Co=256
-endif
-
+"Molokai theme settings
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+"if $COLORTERM == 'gnome-terminal'
+	"set t_Co=256
+"endif
 "
+"Tender Theme Settings
+"if (has("termguicolors"))
+ "set termguicolors
+"endif
+
+"set termguicolors
+"syntax enable
+"colorscheme tender
+"let g:lightline = { 'colorscheme': 'tenderplus' }
+"let g:airline_theme = 'tenderplus'
+
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"colorscheme kalisi
+"set background=dark
+"set t_Co=256
+"let &t_AB="\e[48;5;%dm"
+"let &t_AF="\e[38;5;%dm"
 filetype plugin indent on    " required
 
 
