@@ -366,6 +366,8 @@ map <Leader>mo :set mouse=<cr>
 map <Leader>ds :CtrlPBufTag<cr>
 map <Leader>dd :YcmCompleter GoToDefinition<CR>
 map <Leader>df <c-p>
+map <Leader>dc /const <CR>w
+map <Leader>dv k?const <CR>w
 map <Leader>b <c-o>
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
