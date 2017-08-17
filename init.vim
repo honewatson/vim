@@ -65,7 +65,7 @@ Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'reewr/vim-monokai-phoenix'
 " Beautify JS
 
-Plug 'othree/jspc.vim', {'for': ['html', 'js']}
+Plug 'othree/jspc.vim', {'for': ['html', 'javascript']}
 Plug 'moll/vim-node', {'for': ['html', 'javascript']}
 Plug 'ludovicchabant/vim-gutentags', {'for': ['html', 'javascript']}
 Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'javascript']}
@@ -321,7 +321,7 @@ map <Leader>df <c-p>
 map <Leader>dc /const <CR>w
 map <Leader>dv k?const <CR>w
 map <Leader>b <c-o>
-
+map <C-S-x> :Autoformat<CR>
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set cursorline
 hi CursorLine cterm=NONE ctermbg=235
