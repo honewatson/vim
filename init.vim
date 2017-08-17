@@ -23,9 +23,9 @@ Plug 'isRuslan/vim-es6'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'js'}
+Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
 
-Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css', 'js']}
+Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css', 'javascript']}
 
 Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
 
@@ -66,16 +66,16 @@ Plug 'reewr/vim-monokai-phoenix'
 " Beautify JS
 
 Plug 'othree/jspc.vim', {'for': ['html', 'js']}
-Plug 'moll/vim-node', {'for': ['html', 'js']}
-Plug 'ludovicchabant/vim-gutentags', {'for': ['html', 'js']}
-Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'js']}
-"Plug 'othree/jsdoc-syntax.vim', {'for': ['html', 'js']}
-"Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'js']}
+Plug 'moll/vim-node', {'for': ['html', 'javascript']}
+Plug 'ludovicchabant/vim-gutentags', {'for': ['html', 'javascript']}
+Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'javascript']}
+"Plug 'othree/jsdoc-syntax.vim', {'for': ['html', 'javascript']}
+"Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'javascript']}
 " Code completion for JS
-Plug 'marijnh/tern_for_vim', {'for': ['html', 'js']}
+Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript']}
 
 " Emmet auto completion 
-Plug 'mattn/emmet-vim', {'for': ['moon', 'html', 'js']}
+Plug 'mattn/emmet-vim', {'for': ['moon', 'moonscript', 'html', 'javascript']}
 
 Plug 'chaquotay/ftl-vim-syntax', {'for': 'freemarker'}
 
