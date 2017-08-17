@@ -19,7 +19,7 @@
 
 endif
 
-
+Plug 'isRuslan/vim-es6'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -29,24 +29,9 @@ Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css', 'js']}
 
 Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
 
-Plug 'chaquotay/ftl-vim-syntax', {'for': 'freemarker'}
-
-" reStructured Text
-Plug 'Rykka/riv.vim', {'for': 'reStructuredText'}
-
-" Display reStructured Text
-Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
-
-" Nim Lint
-"Plug 'zah/nim.vim'
-Plug 'baabelfish/nvim-nim', {'for': 'nim'}
-" Less Lint
-Plug 'groenewege/vim-less', {'for': 'less'}
-
 "Plug 'dkprice/vim-easygrep'
 
 Plug 'Valloric/YouCompleteMe'
-
 
 Plug 'scrooloose/syntastic'
 
@@ -77,42 +62,41 @@ Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', {'for': 'golang'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
-" Comment support
-" <leader>c<space> Toggle
-" <leader>cc Comment out
-" <leader>cu Uncomment
+Plug 'reewr/vim-monokai-phoenix'
+" Beautify JS
+
+Plug 'othree/jspc.vim', {'for': ['html', 'js']}
+Plug 'moll/vim-node', {'for': ['html', 'js']}
+Plug 'ludovicchabant/vim-gutentags', {'for': ['html', 'js']}
+Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'js']}
+"Plug 'othree/jsdoc-syntax.vim', {'for': ['html', 'js']}
+"Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'js']}
+" Code completion for JS
+Plug 'marijnh/tern_for_vim', {'for': ['html', 'js']}
+
+" Emmet auto completion 
+Plug 'mattn/emmet-vim', {'for': ['moon', 'html', 'js']}
+
+Plug 'chaquotay/ftl-vim-syntax', {'for': 'freemarker'}
+
+" reStructured Text
+Plug 'Rykka/riv.vim', {'for': 'reStructuredText'}
+
+" Display reStructured Text
+Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
+
+" Nim Lint
+"Plug 'zah/nim.vim'
+Plug 'baabelfish/nvim-nim', {'for': 'nim'}
+" Less Lint
+Plug 'groenewege/vim-less', {'for': 'less'}
+
 Plug 'The-NERD-Commenter'
+"
 "Indent support
 Plug 'tpope/vim-sleuth'
 
 Plug 'tpope/vim-surround'
-
-" Color Support
-"Plug 'tomasr/molokai'
-"Plug 'jacoborus/tender.vim'
-"Plug 'freeo/vim-kalisi'
-
-" Color Support
-"Plug 'flazz/vim-colorschemes'
-Plug 'reewr/vim-monokai-phoenix'
-" Beautify JS
-
-Plug 'pangloss/vim-javascript', {'for': ['html', 'js']}
-let g:javascript_plugin_jsdoc = 1
-
-
-Plug 'crusoexia/vim-javascript-lib', {'for': ['html', 'js']}
-Plug 'maksimr/vim-jsbeautify', {'for': ['html', 'js']}
-Plug 'othree/jspc.vim', {'for': ['html', 'js']}
-Plug 'moll/vim-node', {'for': ['html', 'js']}
-Plug 'ludovicchabant/vim-gutentags', {'for': ['html', 'js']}
-Plug 'ramitos/jsctags', {'for': ['html', 'js']}
-Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'js']}
-Plug 'othree/jsdoc-syntax.vim', {'for': ['html', 'js']}
-Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'js']}
-" Code completion for JS
-Plug 'marijnh/tern_for_vim', {'for': ['html', 'js']}
-
 
 " File/Folder Nav
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -123,11 +107,6 @@ Plug 'jiangmiao/auto-pairs'
 " Silver Searcher SUpport
 Plug 'rking/ag.vim'
 
-" REact Snippets
-Plug 'justinj/vim-react-snippets', {'for': 'js'}
-
-" Emmet auto completion 
-Plug 'mattn/emmet-vim', {'for': ['html', 'js']}
 call plug#end()
 
 
@@ -140,28 +119,6 @@ let g:tagbar_autofocus = 1
 
 map <c-j> :YcmCompleter GetDoc<CR>
 map <c-k> <c-w>z
-"
-" Autoformat setup
-"
-let g:autoformat_autoindent = 0
-let g:formatterpath = ['~/vim/formatters']
-map <c-f> :call JsBeautify()<cr>
-" or
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for json 
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-" for jsx 
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-" for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-" for visual mode
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 "
 "YouCompleteMe setup"
@@ -221,40 +178,10 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/Ult
 let g:UltiSnipsSnippetsDir=$HOME.'/vim/UltiSnips'
 colorscheme monokai-phoenix
 syntax on
-"Molokai theme settings
-"let g:molokai_original = 1
-"let g:rehash256 = 1
-"if $COLORTERM == 'gnome-terminal'
-	"set t_Co=256
-"endif
-"
-"Tender Theme Settings
-"if (has("termguicolors"))
- "set termguicolors
-"endif
-
-"set termguicolors
-"syntax enable
-"colorscheme tender
-"let g:lightline = { 'colorscheme': 'tenderplus' }
-"let g:airline_theme = 'tenderplus'
-
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"colorscheme kalisi
-"set background=dark
-"set t_Co=256
-"let &t_AB="\e[48;5;%dm"
-"let &t_AF="\e[38;5;%dm"
 filetype plugin indent on    " required
-
-
-
 autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 set number
-
-"
 " beginsetup ctrlp and Silver Searcher setup
 
 if executable('ag')
@@ -273,7 +200,6 @@ endif
 " Default to filename searches - so that appctrl will find application
 " controller
 "let g:ctrlp_by_filename = 1
-
 " Don't jump to already open window. This is annoying if you are maintaining
 " several Tab workspaces and want to open two windows into the same file.
 let g:ctrlp_switch_buffer = 0
@@ -281,11 +207,8 @@ let g:ctrlp_working_path_mode = 0
 
 
 " endsetup ctrlp
-
 " Set to auto read when a file is changed from the outside
 " set autoread
-
-" 
 " Set up leader
 "
 let mapleader = ","
