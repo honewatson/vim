@@ -91,6 +91,9 @@ Plug 'baabelfish/nvim-nim', {'for': 'nim'}
 " Less Lint
 Plug 'groenewege/vim-less', {'for': 'less'}
 
+" Reason support
+Plug 'reasonml-editor/vim-reason'
+
 Plug 'The-NERD-Commenter'
 "
 "Indent support
