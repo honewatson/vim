@@ -28,7 +28,7 @@ Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
 Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css', 'javascript']}
 
 Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
-
+autocmd FileType moon setlocal shiftwidth=2 tabstop=2
 "Plug 'dkprice/vim-easygrep'
 
 Plug 'Valloric/YouCompleteMe'
@@ -92,7 +92,7 @@ Plug 'baabelfish/nvim-nim', {'for': 'nim'}
 Plug 'groenewege/vim-less', {'for': 'less'}
 
 " Reason support
-Plug 'reasonml-editor/vim-reason'
+"Plug 'reasonml-editor/vim-reason'
 
 Plug 'The-NERD-Commenter'
 "
