@@ -7,9 +7,14 @@ sudo npm install -g n yarn
 sudo n install stable
 # install conda
 sudo add-apt-repository ppa:neovim-ppa/unstable
+curl https://sh.rustup.rs -sSf | sh
+cargo install ripgrep
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+curl https://sh.rustup.rs -sSf | sh
 #sudo apt-get update
 #sudo apt-get install neovim
-
+npm install -g typescript
 
 #sudo pip install neovim
 # brew install neovim
@@ -43,4 +48,4 @@ conda install libgcc
 nvim +PlugInstall +qall
 
 cd ~/.config/nvim/plugged/YouCompleteMe && git submodule update --init --recursive \
-  && python install.py --gocode-completer --tern-completer
+  && python install.py --gocode-completer --rust-completer --js-completer
