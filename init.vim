@@ -21,6 +21,8 @@ endif
 
 Plug 'isRuslan/vim-es6'
 
+Plug 'leafgarland/typescript-vim'
+
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
@@ -28,7 +30,7 @@ Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
 Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css', 'javascript']}
 
 Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
-
+autocmd FileType moon setlocal shiftwidth=2 tabstop=2
 "Plug 'dkprice/vim-easygrep'
 
 Plug 'Valloric/YouCompleteMe'
@@ -91,6 +93,9 @@ Plug 'baabelfish/nvim-nim', {'for': 'nim'}
 " Less Lint
 Plug 'groenewege/vim-less', {'for': 'less'}
 
+" Reason support
+"Plug 'reasonml-editor/vim-reason'
+
 Plug 'The-NERD-Commenter'
 "
 "Indent support
@@ -109,6 +114,8 @@ Plug 'rking/ag.vim'
 
 call plug#end()
 
+" Typescript/typescript
+let g:typescript_indent_disable = 1
 
 set showcmd
 "let mapleader = "<space>"
@@ -184,18 +191,29 @@ map <C-n> :NERDTreeToggle<CR>
 set number
 " beginsetup ctrlp and Silver Searcher setup
 
-if executable('ag')
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  set grepprg=ag\ --nogroup\ --nocolor
-  "let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git"'
-  " ag is fast enough that CtrlP doesn't need to cache
-  "let g:ctrlp_use_caching = 0
-  let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
-else
-  " Fall back to using git ls-files if Ag is not available
-  let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+"if executable('ag')
+  "" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  "set grepprg=ag\ --nogroup\ --nocolor
+  ""let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git"'
+  "" ag is fast enough that CtrlP doesn't need to cache
+  ""let g:ctrlp_use_caching = 0
+  "let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
+"else
+  "" Fall back to using git ls-files if Ag is not available
+  "let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
+  "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+"endif
+
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_custom_ignore = 'node_modules'
+  let g:ctrlp_use_caching = 0
 endif
+
+set wildignore+=*/.git/*,*/.hg/*,*/tmp/*,*.swp
+
+
 
 " Default to filename searches - so that appctrl will find application
 " controller
