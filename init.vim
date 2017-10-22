@@ -72,7 +72,7 @@ Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'javascript']}
 "Plug 'othree/jsdoc-syntax.vim', {'for': ['html', 'javascript']}
 "Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'javascript']}
 " Code completion for JS
-Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript']}
+"Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript']}
 
 " Emmet auto completion 
 Plug 'mattn/emmet-vim', {'for': ['moon', 'moonscript', 'html', 'javascript']}
@@ -310,7 +310,7 @@ map <Leader>N :bnext<CR>
 map <Leader>B :bprevious<CR>
 
 " <Leader>t - ,t mappings
-map <Leader>td :TernDef<CR>
+"map <Leader>td :TernDef<CR>
 nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/")"
 nmap <Leader>tj :JsDoc<CR>
 map <Leader>mm :set mouse=a<cr>
