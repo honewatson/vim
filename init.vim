@@ -19,15 +19,20 @@
 
 endif
 
-Plug 'isRuslan/vim-es6'
-
+"Plug 'isRuslan/vim-es6'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+"Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'leafgarland/typescript-vim'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
 
-Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css', 'javascript']}
+Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css']}
 
 Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
 autocmd FileType moon setlocal shiftwidth=2 tabstop=2
@@ -67,12 +72,16 @@ Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'reewr/vim-monokai-phoenix'
 " Beautify JS
 
+" Auto provides parameters of functions
 Plug 'othree/jspc.vim', {'for': ['html', 'javascript']}
-Plug 'moll/vim-node', {'for': ['html', 'javascript']}
+"Plug 'moll/vim-node', {'for': ['html', 'javascript']}
+" Regenerates tags files async
 Plug 'ludovicchabant/vim-gutentags', {'for': ['html', 'javascript']}
+" Async syntax highlighing
 Plug 'osyo-manga/vim-watchdogs', {'for': ['html', 'javascript']}
 "Plug 'othree/jsdoc-syntax.vim', {'for': ['html', 'javascript']}
-"Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'javascript']}
+" Generate JSDOC
+Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'javascript']}
 " Code completion for JS
 "Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript']}
 
