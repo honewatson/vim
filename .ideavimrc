@@ -36,8 +36,9 @@ map <Leader>ds :action GotoSymbol<CR>
 map <Leader>df :action GotoFile<CR>
 map <Leader>du :action FindUsages<CR>
 map <Leader>di :action FindInPath<CR>
-map <Leader>f :action ReformatCode<CR>
 map <Leader>dr :action ReplaceInPath<CR>
+map <Leader>dv :action RenameElement<CR>
+map <Leader>f :action ReformatCode<CR>
 map <Leader>b :action Back<CR>
 
 " '[[' '[{' '/;'
