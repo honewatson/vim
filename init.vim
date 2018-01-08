@@ -37,6 +37,8 @@ Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css']}
 Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
 autocmd FileType moon setlocal shiftwidth=2 tabstop=2
 "Plug 'dkprice/vim-easygrep'
+"
+Plug 'jakwings/vim-pony'
 
 Plug 'Valloric/YouCompleteMe'
 
