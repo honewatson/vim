@@ -40,7 +40,9 @@ autocmd FileType moon setlocal shiftwidth=2 tabstop=2
 
 Plug 'Valloric/YouCompleteMe'
 
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+
+Plug 'w0rp/ale'
 
 Plug 'bling/vim-airline'
 
@@ -123,6 +125,8 @@ Plug 'rking/ag.vim'
 
 call plug#end()
 
+set nofoldenable
+
 " Typescript/typescript
 let g:typescript_indent_disable = 1
 
@@ -145,28 +149,27 @@ let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 1
 "map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-
 "
 "Syntastic
 "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_checker_args='--ignore=W191,W291,W292,W293,W391,W503,W601,W602,W603,W604'
-let g:syntastic_javascript_checkers = ['eslint']
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_python_checkers=['flake8']
+"let g:syntastic_python_checker_args='--ignore=W191,W291,W292,W293,W391,W503,W601,W602,W603,W604'
+"let g:syntastic_javascript_checkers = ['eslint']
 " Override eslint with local version where necessary.
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-  let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-  let g:syntastic_javascript_eslint_exec = local_eslint
-endif
+"let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+"if matchstr(local_eslint, "^\/\\w") == ''
+  "let local_eslint = getcwd() . "/" . local_eslint
+"endif
+"if executable(local_eslint)
+  "let g:syntastic_javascript_eslint_exec = local_eslint
+"endif
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set ttimeoutlen=50
