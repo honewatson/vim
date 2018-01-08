@@ -101,6 +101,7 @@ Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
 " Nim Lint
 "Plug 'zah/nim.vim'
 Plug 'baabelfish/nvim-nim', {'for': 'nim'}
+" Turn off folds with 'set nofoldenable' and toggle with 'zi'
 " Less Lint
 Plug 'groenewege/vim-less', {'for': 'less'}
 
