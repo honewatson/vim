@@ -20,6 +20,25 @@ global !p
 import os
 from slugify import slugify
 endglobal
+snippet rpag "Raw Page Blank"
+
+- "$1":
+	type: page
+	link_type: ${2:1}
+	page_contents:
+		`!p snip.rv = slugify(t[1])`:
+			type: raw
+			content-file: ./site-content/`!p snip.rv = slugify(t[1])`.html
+	$3
+`!p
+if t[3]:
+    fname = '%s/site-content/%s.html' % (os.getcwd(), slugify(t[1]))
+    f = open(fname, 'w')
+    f.write('\n')
+    f.close();
+`
+endsnippet
+
 snippet rpage "Raw Page"
 
 - "$1":
@@ -28,7 +47,7 @@ snippet rpage "Raw Page"
 	page_contents:
 		$2:
 			type: raw
-			content-file: ./global/nested-content/html/`!p snip.rv = slugify(t[1])`.html
+			content-file: ./nested-content/`!p snip.rv = slugify(t[1])`.html
 `!p
 if t[2]:
 	fname = '%s/global/nested-content/html/%s.html' % (os.getcwd(), slugify(t[1]))
