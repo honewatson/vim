@@ -350,9 +350,10 @@ map <Leader>mm :set mouse=a<cr>
 map <Leader>mo :set mouse=<cr>
 map <Leader>ds :CtrlPBufTag<cr>
 map <Leader>dd :YcmCompleter GoToDefinition<CR>
+map <Leader>dv :YcmCompleter RefactorRename<space>
 map <Leader>df <c-p>
 map <Leader>dc /const <CR>w
-map <Leader>dv k?const <CR>w
+"map <Leader>dv k?const <CR>w
 map <Leader>b <c-o>
 map <C-S-x> :Autoformat<CR>
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
