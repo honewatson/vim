@@ -27,7 +27,7 @@ let g:javascript_plugin_flow = 1
 "Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'leafgarland/typescript-vim'
-
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
@@ -184,12 +184,12 @@ let g:UltiSnipsExpandTrigger = ";;<tab>"
 let g:ulti_expand_or_jump_res = 0
 let g:ultisnips_python_style="doxygen"
 function ExpandSnippetOrCarriageReturn()
-	let snippet = UltiSnips#ExpandSnippetOrJump()
-		if g:ulti_expand_or_jump_res > 0
-			return snippet
-		else
-			return "\<CR>"
-		endif
+  let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+      return snippet
+    else
+      return "\<CR>"
+    endif
 endfunction
 inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
@@ -337,7 +337,7 @@ map <Leader>wh <c-w>h
 map ;;help :!cat ~/vim/help.txt<cr>
 "map ;;pu :!pythoscope %<cr>
 map ;;s <Esc>^i
-nmap <Leader>7 :TagbarToggle<CR>
+nmap <Leader>7false :TagbarToggle<CR>
 map ,,a :Autoformat<CR>
 map <Leader>N :bnext<CR>
 map <Leader>B :bprevious<CR>
