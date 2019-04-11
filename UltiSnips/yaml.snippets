@@ -178,3 +178,12 @@ snippet ps "Page Simple"
     link_type: ${2:1}
 
 endsnippet
+
+snippet mft "Metadata Field Text"
+
+- "video_url_$1":
+    type: field
+    ftype: text
+    friendly_name: "Video - URL `!p snip.rv = t[1].capitalize()`"
+    description: "Video - URL `!p snip.rv = t[1].capitalize()`.  Set 'Video - URL' for more details"
+endsnippet
