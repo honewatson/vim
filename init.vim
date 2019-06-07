@@ -291,7 +291,7 @@ set si "Smart indent
 set wrap "Wrap lines
 
 " Tmux settings
-let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
+let g:tmuxify_custom_command = 'tmux split-window -d -l 20'
 "let g:tmuxify_run = {'js':'node'}
 
 " Autopep settings
