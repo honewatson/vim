@@ -243,8 +243,8 @@ set whichwrap+=<,>,h,l
 "" Be smart when using tabs ;)
 set smarttab
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " " Linebreak on 500 characters
 set lbr
@@ -258,7 +258,7 @@ set si "Smart indent
 set wrap "Wrap lines
 
 " Tmux settings
-let g:tmuxify_custom_command = 'tmux split-window -d -l 20'
+let g:tmuxify_custom_command = 'tmux split-window -d -l 30'
 "let g:tmuxify_run = {'js':'node'}
 
 " Autopep settings
@@ -336,7 +336,9 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set cursorline
 hi CursorLine cterm=NONE ctermbg=235
 hi Visual cterm=NONE ctermbg=192 ctermfg=black
+" fzf
 map <c-p> :Files<CR>
+map <c-t> :Rg<space>
 let g:vim_markdown_folding_disabled = 1
 
 " Install ocaml, opam, and Merlin
