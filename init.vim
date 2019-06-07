@@ -26,7 +26,7 @@ let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 "Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -38,7 +38,7 @@ Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
 autocmd FileType moon setlocal shiftwidth=2 tabstop=2
 "Plug 'dkprice/vim-easygrep'
 "
-Plug 'jakwings/vim-pony'
+Plug 'jakwings/vim-pony', {'for': ['pony']}
 
 Plug 'Valloric/YouCompleteMe'
 
@@ -48,13 +48,16 @@ Plug 'w0rp/ale'
 
 Plug 'bling/vim-airline'
 
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', {'for': ['json']}
 "vim-sneak Sneak is a minimalist, versatile Vim motion plugin that jumps to
 "any location specified by two characters.
 Plug 'justinmk/vim-sneak'
 
 "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
+"Plug 'jremmen/vim-ripgrep'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 "Plug 'Shougo/denite.nvim'
 
 "Tagbar is a Vim plugin that provides an easy way to browse the tags of the
@@ -160,28 +163,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 1
 "map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-"
-"Syntastic
-"
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 0
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_python_checkers=['flake8']
-"let g:syntastic_python_checker_args='--ignore=W191,W291,W292,W293,W391,W503,W601,W602,W603,W604'
-"let g:syntastic_javascript_checkers = ['eslint']
-" Override eslint with local version where necessary.
-"let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-"if matchstr(local_eslint, "^\/\\w") == ''
-  "let local_eslint = getcwd() . "/" . local_eslint
-"endif
-"if executable(local_eslint)
-  "let g:syntastic_javascript_eslint_exec = local_eslint
-"endif
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set ttimeoutlen=50
@@ -213,27 +194,13 @@ filetype plugin indent on    " required
 autocmd StdinReadPre * let s:std_in=1
 map <C-n> :NERDTreeToggle<CR>
 set number
-" beginsetup ctrlp and Silver Searcher setup
 
-"if executable('ag')
-  "" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  "set grepprg=ag\ --nogroup\ --nocolor
-  ""let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git"'
-  "" ag is fast enough that CtrlP doesn't need to cache
-  ""let g:ctrlp_use_caching = 0
-  "let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
-"else
-  "" Fall back to using git ls-files if Ag is not available
-  "let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
-  "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+"if executable('rg')
+  "set grepprg=rg\ --color=never
+  "let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  "let g:ctrlp_custom_ignore = 'node_modules'
+  "let g:ctrlp_use_caching = 0
 "endif
-
-if executable('rg')
-  set grepprg=rg\ --color=never
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-  let g:ctrlp_custom_ignore = 'node_modules'
-  let g:ctrlp_use_caching = 0
-endif
 
 set wildignore+=*/.git/*,*/.hg/*,*/tmp/*,*.swp
 
@@ -244,8 +211,8 @@ set wildignore+=*/.git/*,*/.hg/*,*/tmp/*,*.swp
 "let g:ctrlp_by_filename = 1
 " Don't jump to already open window. This is annoying if you are maintaining
 " several Tab workspaces and want to open two windows into the same file.
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
+"let g:ctrlp_switch_buffer = 0
+"let g:ctrlp_working_path_mode = 0
 
 
 " endsetup ctrlp
@@ -369,7 +336,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set cursorline
 hi CursorLine cterm=NONE ctermbg=235
 hi Visual cterm=NONE ctermbg=192 ctermfg=black
-
+map <c-p> :Files<CR>
 let g:vim_markdown_folding_disabled = 1
 
 " Install ocaml, opam, and Merlin
