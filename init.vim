@@ -110,7 +110,9 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 " Reason support
 "Plug 'reasonml-editor/vim-reason'
 
-Plug 'The-NERD-Commenter'
+
+Plug 'scrooloose/nerdcommenter'
+"iPlug 'scrooloose/nerdcommenter'
 "
 "Indent support
 Plug 'tpope/vim-sleuth'
@@ -125,6 +127,13 @@ Plug 'jiangmiao/auto-pairs'
 
 " Silver Searcher SUpport
 Plug 'rking/ag.vim'
+
+" Add back in TMUX
+Plug 'jebaum/vim-tmuxify'
+Plug 'christoomey/vim-tmux-navigator'
+
+" Kubernetes
+Plug 'andrewstuart/vim-kubernetes'
 
 call plug#end()
 
@@ -282,7 +291,7 @@ set si "Smart indent
 set wrap "Wrap lines
 
 " Tmux settings
-"let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
+let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
 "let g:tmuxify_run = {'js':'node'}
 
 " Autopep settings
@@ -365,5 +374,3 @@ let g:vim_markdown_folding_disabled = 1
 
 " Install ocaml, opam, and Merlin
 " Make sure eval `opam config env` is in your zshrc or bashrc file
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
