@@ -343,6 +343,7 @@ map <c-p> :Files<CR>
 map <c-t> :Rg<space>
 let g:vim_markdown_folding_disabled = 1
 function! MyHighlights() abort
+    hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
     "highlight Visual     cterm=NONE ctermbg=76  ctermfg=16  gui=NONE guibg=#5fd700 guifg=#000000
     "highlight StatusLine cterm=NONE ctermbg=231 ctermfg=160 gui=NONE guibg=#ffffff guifg=#d70000
     "highlight Normal     cterm=NONE ctermbg=17              gui=NONE guibg=#00005f
