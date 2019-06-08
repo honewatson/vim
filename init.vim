@@ -36,6 +36,10 @@ Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css']}
 
 Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
 autocmd FileType moon setlocal shiftwidth=2 tabstop=2
+autocmd FileType js setlocal shiftwidth=2 tabstop=2
+autocmd FileType md setlocal shiftwidth=2 tabstop=2
+autocmd FileType css setlocal shiftwidth=2 tabstop=2
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2
 "Plug 'dkprice/vim-easygrep'
 "
 Plug 'jakwings/vim-pony', {'for': ['pony']}
@@ -74,7 +78,7 @@ Plug 'tpope/vim-fugitive'
 " " like <leader>w saves the current file
 " Golang Lint etc
 Plug 'fatih/vim-go', {'for': 'golang'}
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'plasticboy/vim-markdown'
 
 Plug 'reewr/vim-monokai-phoenix'
 " Beautify JS
@@ -126,9 +130,9 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Autopairs tool
-"Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 "Plug 'rstacruz/vim-closer'
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
 
 " Silver Searcher SUpport
 Plug 'rking/ag.vim'
@@ -351,8 +355,7 @@ augroup MyColors
     autocmd ColorScheme * call MyHighlights()
 augroup END
 colorscheme monokai-phoenix
-
-let g:vim_markdown_fenced_languages = ['csharp=cs']
+let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby'] 
 
 
 
