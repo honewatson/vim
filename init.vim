@@ -126,7 +126,9 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Autopairs tool
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
+"Plug 'rstacruz/vim-closer'
+Plug 'Raimondi/delimitMate'
 
 " Silver Searcher SUpport
 Plug 'rking/ag.vim'
@@ -340,6 +342,18 @@ hi Visual cterm=NONE ctermbg=192 ctermfg=black
 map <c-p> :Files<CR>
 map <c-t> :Rg<space>
 let g:vim_markdown_folding_disabled = 1
+function! MyHighlights() abort
+    "highlight Visual     cterm=NONE ctermbg=76  ctermfg=16  gui=NONE guibg=#5fd700 guifg=#000000
+    "highlight StatusLine cterm=NONE ctermbg=231 ctermfg=160 gui=NONE guibg=#ffffff guifg=#d70000
+    "highlight Normal     cterm=NONE ctermbg=17              gui=NONE guibg=#00005f
+    "highlight NonText    cterm=NONE ctermbg=17              gui=NONE guibg=#00005f
+endfunction
+
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme * call MyHighlights()
+augroup END
+colorscheme monokai-phoenix
 
 " Install ocaml, opam, and Merlin
 " Make sure eval `opam config env` is in your zshrc or bashrc file
