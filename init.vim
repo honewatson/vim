@@ -344,17 +344,6 @@ map <c-t> :Rg<space>
 let g:vim_markdown_folding_disabled = 1
 function! MyHighlights() abort
     hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
-    "hi Comment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
-    "hi jsLineComment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
-    "hi jsEnvComment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
-    "hi jsCvsTag guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
-    "hi jsComment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
-    "hi jsBlockComment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
-    "hi jsDocTags guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
-    "hi jsDocType guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
-    "hi jsDocTypeNoParam guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
-    "hi jsDocParam guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
-    "hi jsDocSeeTag guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
 endfunction
 
 augroup MyColors
