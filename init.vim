@@ -344,10 +344,17 @@ map <c-t> :Rg<space>
 let g:vim_markdown_folding_disabled = 1
 function! MyHighlights() abort
     hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
-    "highlight Visual     cterm=NONE ctermbg=76  ctermfg=16  gui=NONE guibg=#5fd700 guifg=#000000
-    "highlight StatusLine cterm=NONE ctermbg=231 ctermfg=160 gui=NONE guibg=#ffffff guifg=#d70000
-    "highlight Normal     cterm=NONE ctermbg=17              gui=NONE guibg=#00005f
-    "highlight NonText    cterm=NONE ctermbg=17              gui=NONE guibg=#00005f
+    "hi Comment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
+    "hi jsLineComment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
+    "hi jsEnvComment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
+    "hi jsCvsTag guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
+    "hi jsComment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
+    "hi jsBlockComment guifg=#5F87AF guibg=NONE gui=italic ctermfg=27 ctermbg=15 cterm=italic
+    "hi jsDocTags guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
+    "hi jsDocType guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
+    "hi jsDocTypeNoParam guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
+    "hi jsDocParam guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
+    "hi jsDocSeeTag guifg=#778899 guibg=NONE gui=NONE ctermfg=197 ctermbg=15 cterm=NONE
 endfunction
 
 augroup MyColors
@@ -355,6 +362,10 @@ augroup MyColors
     autocmd ColorScheme * call MyHighlights()
 augroup END
 colorscheme monokai-phoenix
+
+let g:vim_markdown_fenced_languages = ['csharp=cs']
+
+
 
 " Install ocaml, opam, and Merlin
 " Make sure eval `opam config env` is in your zshrc or bashrc file
