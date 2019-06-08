@@ -345,6 +345,11 @@ hi Visual cterm=NONE ctermbg=192 ctermfg=black
 " fzf
 map <c-p> :Files<CR>
 map <c-t> :Rg<space>
+" fzf files
+map <Leader>ff :Files<CR>
+map <Leader>fr :Rg<CR>
+map <Leader>fc :Commands<CR>
+map <Leader>fl :Lines<CR>
 let g:vim_markdown_folding_disabled = 1
 function! MyHighlights() abort
     hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
@@ -356,8 +361,8 @@ augroup MyColors
 augroup END
 colorscheme monokai-phoenix
 let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby'] 
-
-
-
-" Install ocaml, opam, and Merlin
+" Follow link -> ge
+"
+"
+" " Install ocaml, opam, and Merlin
 " Make sure eval `opam config env` is in your zshrc or bashrc file
