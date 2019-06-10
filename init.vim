@@ -19,6 +19,8 @@
 
 endif
 
+Plug 'rhysd/nyaovim-mini-browser'
+
 "Plug 'isRuslan/vim-es6'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 let g:javascript_plugin_jsdoc = 1
