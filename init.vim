@@ -55,6 +55,8 @@ Plug 'w0rp/ale'
 Plug 'bling/vim-airline'
 
 Plug 'elzr/vim-json', {'for': ['json']}
+Plug 'godlygeek/tabular', {'for': ['md']}
+Plug 'plasticboy/vim-markdown', {'for': ['md']}
 "vim-sneak Sneak is a minimalist, versatile Vim motion plugin that jumps to
 "any location specified by two characters.
 Plug 'justinmk/vim-sneak'
@@ -80,7 +82,6 @@ Plug 'tpope/vim-fugitive'
 " " like <leader>w saves the current file
 " Golang Lint etc
 Plug 'fatih/vim-go', {'for': 'golang'}
-Plug 'plasticboy/vim-markdown'
 
 Plug 'reewr/vim-monokai-phoenix'
 " Beautify JS
@@ -146,6 +147,10 @@ Plug 'christoomey/vim-tmux-navigator'
 " Kubernetes
 Plug 'andrewstuart/vim-kubernetes'
 
+" Logs
+Plug 'MTDL9/vim-log-highlighting'
+au BufNewFile,BufRead *.err set filetype=log
+au BufNewFile,BufRead *.out set filetype=log
 call plug#end()
 
 set nofoldenable
@@ -354,7 +359,7 @@ map <Leader>ff :Files<CR>
 map <Leader>fr :Rg<CR>
 map <Leader>fc :Commands<CR>
 map <Leader>fl :Lines<CR>
-let g:vim_markdown_folding_disabled = 1
+"let g:vim_markdown_folding_disabled = 1
 function! MyHighlights() abort
     hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
 endfunction
@@ -364,7 +369,7 @@ augroup MyColors
     autocmd ColorScheme * call MyHighlights()
 augroup END
 colorscheme monokai-phoenix
-let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby'] 
+let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby', 'yaml', 'json', 'xml'] 
 " Follow link -> ge
 "
 "
