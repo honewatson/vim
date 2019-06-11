@@ -267,6 +267,7 @@ set wrap "Wrap lines
 
 " Tmux settings
 let g:tmuxify_custom_command = 'tmux split-window -d -l 30'
+map <Leader>md v$<Leader>ms
 "let g:tmuxify_run = {'js':'node'}
 
 " Autopep settings
