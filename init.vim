@@ -151,6 +151,16 @@ Plug 'andrewstuart/vim-kubernetes'
 Plug 'MTDL9/vim-log-highlighting'
 au BufNewFile,BufRead *.err set filetype=log
 au BufNewFile,BufRead *.out set filetype=log
+
+" Todo
+Plug 'jceb/vim-orgmode'
+
+"# Wiki
+" Conflicts with plasticboy
+"Plug 'vimwiki/vimwiki'
+"let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+
+
 call plug#end()
 
 set nofoldenable
