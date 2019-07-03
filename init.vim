@@ -29,7 +29,7 @@ let g:javascript_plugin_flow = 1
 "Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'json', 'css', 'scss'] }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
@@ -81,7 +81,7 @@ Plug 'tpope/vim-fugitive'
 
 " " like <leader>w saves the current file
 " Golang Lint etc
-Plug 'fatih/vim-go', {'for': 'golang'}
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go'}
 
 Plug 'reewr/vim-monokai-phoenix'
 " Beautify JS
@@ -113,6 +113,7 @@ Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
 " Nim Lint
 "Plug 'zah/nim.vim'
 Plug 'baabelfish/nvim-nim', {'for': 'nim'}
+"Plug 'alaviss/nim.nvim', {'for': 'nim'}
 " Turn off folds with 'set nofoldenable' and toggle with 'zi'
 " Less Lint
 Plug 'groenewege/vim-less', {'for': 'less'}
@@ -365,9 +366,9 @@ hi Visual cterm=NONE ctermbg=192 ctermfg=black
 map <c-p> :Files<CR>
 map <c-t> :Rg<space>
 " fzf files
-map <Leader>ff :Files<CR>
-map <Leader>fr :Rg<CR>
-map <Leader>fc :Commands<CR>
+map <Leader>ff :Files<space>
+map <Leader>fr :Rg<space>
+map <Leader>fc :Commands<space>
 map <Leader>fl :Lines<CR>
 "let g:vim_markdown_folding_disabled = 1
 function! MyHighlights() abort
