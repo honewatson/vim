@@ -19,6 +19,8 @@
 
 endif
 
+"Plug 'rhysd/nyaovim-mini-browser'
+
 "Plug 'isRuslan/vim-es6'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 let g:javascript_plugin_jsdoc = 1
@@ -26,28 +28,8 @@ let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 "Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'posva/vim-vue'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/1.x',
-  \ 'for': [
-    \ 'javascript',
-    \ 'typescript',
-    \ 'css',
-    \ 'less',
-    \ 'scss',
-    \ 'json',
-    \ 'graphql',
-    \ 'markdown',
-    \ 'vue',
-    \ 'lua',
-    \ 'php',
-    \ 'python',
-    \ 'ruby',
-    \ 'html',
-    \ 'swift' ] }
-Plug 'leafgarland/typescript-vim'
-Plug 'rust-lang/rust.vim'
+Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
+Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'json', 'css', 'scss'] }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
@@ -56,9 +38,13 @@ Plug 'Chiel92/vim-autoformat', {'for': ['html', 'css']}
 
 Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
 autocmd FileType moon setlocal shiftwidth=2 tabstop=2
+autocmd FileType js setlocal shiftwidth=2 tabstop=2
+autocmd FileType md setlocal shiftwidth=2 tabstop=2
+autocmd FileType css setlocal shiftwidth=2 tabstop=2
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2
 "Plug 'dkprice/vim-easygrep'
 "
-Plug 'jakwings/vim-pony'
+Plug 'jakwings/vim-pony', {'for': ['pony']}
 
 Plug 'Valloric/YouCompleteMe'
 
@@ -68,13 +54,18 @@ Plug 'w0rp/ale'
 
 Plug 'bling/vim-airline'
 
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', {'for': ['json']}
+Plug 'godlygeek/tabular', {'for': ['md']}
+Plug 'plasticboy/vim-markdown', {'for': ['md']}
 "vim-sneak Sneak is a minimalist, versatile Vim motion plugin that jumps to
 "any location specified by two characters.
 Plug 'justinmk/vim-sneak'
 
 "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
+"Plug 'jremmen/vim-ripgrep'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 "Plug 'Shougo/denite.nvim'
 
 "Tagbar is a Vim plugin that provides an easy way to browse the tags of the
@@ -90,8 +81,7 @@ Plug 'tpope/vim-fugitive'
 
 " " like <leader>w saves the current file
 " Golang Lint etc
-Plug 'fatih/vim-go', {'for': 'golang'}
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go'}
 
 Plug 'reewr/vim-monokai-phoenix'
 " Beautify JS
@@ -123,6 +113,7 @@ Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
 " Nim Lint
 "Plug 'zah/nim.vim'
 Plug 'baabelfish/nvim-nim', {'for': 'nim'}
+"Plug 'alaviss/nim.nvim', {'for': 'nim'}
 " Turn off folds with 'set nofoldenable' and toggle with 'zi'
 " Less Lint
 Plug 'groenewege/vim-less', {'for': 'less'}
@@ -130,7 +121,9 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 " Reason support
 "Plug 'reasonml-editor/vim-reason'
 
-Plug 'The-NERD-Commenter'
+
+Plug 'scrooloose/nerdcommenter'
+"iPlug 'scrooloose/nerdcommenter'
 "
 "Indent support
 Plug 'tpope/vim-sleuth'
@@ -142,9 +135,32 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Autopairs tool
 Plug 'jiangmiao/auto-pairs'
+"Plug 'rstacruz/vim-closer'
+"Plug 'Raimondi/delimitMate'
 
 " Silver Searcher SUpport
 Plug 'rking/ag.vim'
+
+" Add back in TMUX
+Plug 'jebaum/vim-tmuxify'
+Plug 'christoomey/vim-tmux-navigator'
+
+" Kubernetes
+Plug 'andrewstuart/vim-kubernetes'
+
+" Logs
+Plug 'MTDL9/vim-log-highlighting'
+au BufNewFile,BufRead *.err set filetype=log
+au BufNewFile,BufRead *.out set filetype=log
+
+" Todo
+Plug 'jceb/vim-orgmode'
+
+"# Wiki
+" Conflicts with plasticboy
+"Plug 'vimwiki/vimwiki'
+"let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+
 
 call plug#end()
 
@@ -171,28 +187,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 1
 "map ;;yc :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-"
-"Syntastic
-"
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 0
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_python_checkers=['flake8']
-"let g:syntastic_python_checker_args='--ignore=W191,W291,W292,W293,W391,W503,W601,W602,W603,W604'
-"let g:syntastic_javascript_checkers = ['eslint']
-" Override eslint with local version where necessary.
-"let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-"if matchstr(local_eslint, "^\/\\w") == ''
-  "let local_eslint = getcwd() . "/" . local_eslint
-"endif
-"if executable(local_eslint)
-  "let g:syntastic_javascript_eslint_exec = local_eslint
-"endif
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set ttimeoutlen=50
@@ -204,12 +198,12 @@ let g:UltiSnipsExpandTrigger = ";;<tab>"
 let g:ulti_expand_or_jump_res = 0
 let g:ultisnips_python_style="doxygen"
 function ExpandSnippetOrCarriageReturn()
-	let snippet = UltiSnips#ExpandSnippetOrJump()
-		if g:ulti_expand_or_jump_res > 0
-			return snippet
-		else
-			return "\<CR>"
-		endif
+  let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+      return snippet
+    else
+      return "\<CR>"
+    endif
 endfunction
 inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
@@ -224,27 +218,13 @@ filetype plugin indent on    " required
 autocmd StdinReadPre * let s:std_in=1
 map <C-n> :NERDTreeToggle<CR>
 set number
-" beginsetup ctrlp and Silver Searcher setup
 
-"if executable('ag')
-  "" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  "set grepprg=ag\ --nogroup\ --nocolor
-  ""let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git"'
-  "" ag is fast enough that CtrlP doesn't need to cache
-  ""let g:ctrlp_use_caching = 0
-  "let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
-"else
-  "" Fall back to using git ls-files if Ag is not available
-  "let g:ctrlp_custom_ignore = 'node_modules\|\.git$\|\.hg$\|\.svn$'
-  "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+"if executable('rg')
+  "set grepprg=rg\ --color=never
+  "let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  "let g:ctrlp_custom_ignore = 'node_modules'
+  "let g:ctrlp_use_caching = 0
 "endif
-
-if executable('rg')
-  set grepprg=rg\ --color=never
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-  let g:ctrlp_custom_ignore = 'node_modules'
-  let g:ctrlp_use_caching = 0
-endif
 
 set wildignore+=*/.git/*,*/.hg/*,*/tmp/*,*.swp
 
@@ -255,8 +235,8 @@ set wildignore+=*/.git/*,*/.hg/*,*/tmp/*,*.swp
 "let g:ctrlp_by_filename = 1
 " Don't jump to already open window. This is annoying if you are maintaining
 " several Tab workspaces and want to open two windows into the same file.
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
+"let g:ctrlp_switch_buffer = 0
+"let g:ctrlp_working_path_mode = 0
 
 
 " endsetup ctrlp
@@ -287,8 +267,8 @@ set whichwrap+=<,>,h,l
 "" Be smart when using tabs ;)
 set smarttab
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " " Linebreak on 500 characters
 set lbr
@@ -302,7 +282,10 @@ set si "Smart indent
 set wrap "Wrap lines
 
 " Tmux settings
-"let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
+let g:tmuxify_custom_command = 'tmux split-window -d -l 30'
+map <Leader>md ^v$<Leader>ms
+" Send line to vim command ,mv
+map <Leader>mv ^v$y:<C-R>0<BS><CR>
 "let g:tmuxify_run = {'js':'node'}
 
 " Autopep settings
@@ -357,7 +340,7 @@ map <Leader>wh <c-w>h
 map ;;help :!cat ~/vim/help.txt<cr>
 "map ;;pu :!pythoscope %<cr>
 map ;;s <Esc>^i
-nmap <Leader>7 :TagbarToggle<CR>
+nmap <Leader>7false :TagbarToggle<CR>
 map ,,a :Autoformat<CR>
 map <Leader>N :bnext<CR>
 map <Leader>B :bprevious<CR>
@@ -380,10 +363,30 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set cursorline
 hi CursorLine cterm=NONE ctermbg=235
 hi Visual cterm=NONE ctermbg=192 ctermfg=black
+" fzf
+map <c-p> :Files<CR>
+map <c-t> :Rg<space>
+" fzf files
+map <Leader>ff :Files<space>
+map <Leader>fr :Rg<space>
+map <Leader>fc :Commands<space>
+map <Leader>fl :Lines<CR>
+" ****
+" Send line to vim command ,mv
+" ****
+"let g:vim_markdown_folding_disabled = 1
+function! MyHighlights() abort
+    hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
+endfunction
 
-let g:vim_markdown_folding_disabled = 1
-
-" Install ocaml, opam, and Merlin
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme * call MyHighlights()
+augroup END
+colorscheme monokai-phoenix
+let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby', 'yaml', 'json', 'xml'] 
+" Follow link -> ge
+"
+"
+" " Install ocaml, opam, and Merlin
 " Make sure eval `opam config env` is in your zshrc or bashrc file
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
