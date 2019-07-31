@@ -284,6 +284,7 @@ set wrap "Wrap lines
 " Tmux settings
 let g:tmuxify_custom_command = 'tmux split-window -d -l 30'
 map <Leader>md ^v$<Leader>ms
+" Send line to vim command ,mv
 map <Leader>mv ^v$y:<C-R>0<BS><CR>
 "let g:tmuxify_run = {'js':'node'}
 
@@ -370,6 +371,9 @@ map <Leader>ff :Files<space>
 map <Leader>fr :Rg<space>
 map <Leader>fc :Commands<space>
 map <Leader>fl :Lines<CR>
+" ****
+" Send line to vim command ,mv
+" ****
 "let g:vim_markdown_folding_disabled = 1
 function! MyHighlights() abort
     hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
