@@ -115,6 +115,84 @@ map <Leader>mm :set mouse=a<cr>
 map <Leader>mo :set mouse=<cr>
 map <C-S-x> :Autoformat<CR>
 
+let $plug_file = expand("~/.config/nvim/autoload/plug.vim")
+let $plug_dir = expand('~/.config/nvim/plugged')
+
+if filereadable($plug_file)
+  set rtp+=$plug_file
+  " :PlugAll
+  call plug#begin($plug_dir)
+
+  " Add back in TMUX
+  Plug 'jebaum/vim-tmuxify'
+  Plug 'christoomey/vim-tmux-navigator'
+  " Kubernetes
+  Plug 'andrewstuart/vim-kubernetes'
+  " Autopairs tool
+  Plug 'jiangmiao/auto-pairs'
+  """ Syntax
+  Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go'}
+  Plug 'elzr/vim-json', {'for': ['json']}
+  Plug 'godlygeek/tabular', {'for': ['md']}
+  Plug 'plasticboy/vim-markdown', {'for': ['md']}
+  Plug 'groenewege/vim-less', {'for': 'less'}
+  Plug 'baabelfish/nvim-nim', {'for': 'nim'}
+  Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
+  Plug 'chaquotay/ftl-vim-syntax', {'for': 'freemarker'}
+  Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
+  Plug 'Rykka/riv.vim', {'for': 'reStructuredText'}
+  Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
+  Plug 'MTDL9/vim-log-highlighting'
+  " File/Folder Nav
+  Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+  "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  """ Helpers
+  Plug 'tpope/vim-surround'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'justinmk/vim-sneak'
+  " Additional Indent support
+  Plug 'tpope/vim-sleuth'
+  " Emmet auto completion 
+  Plug 'mattn/emmet-vim', {'for': ['moon', 'moonscript', 'html', 'javascript']}
+  " Generate JSDOC
+  Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'javascript']}
+  " Snippets
+  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+  Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
+  " Autocomplete & Lint
+  Plug 'w0rp/ale'
+  "Plug 'othree/jspc.vim', {'for': ['html', 'javascript']}
+  " Editor Visual
+  Plug 'bling/vim-airline'
+  "Tagbar is a Vim plugin that provides an easy way to browse the tags of the
+  "current file and get an overview of its structure. 
+  Plug 'majutsushi/tagbar'
+  "vim signifiy It uses signs to indicate added, modified and removed lines based on data of
+  "an underlying version control system.
+  Plug 'mhinz/vim-signify'
+
+  """ Version Control
+  " Git support
+  Plug 'tpope/vim-fugitive'
+  call plug#end()
+  " Javascript
+  let g:javascript_plugin_jsdoc = 1
+  " Logs
+  au BufNewFile,BufRead *.err set filetype=log
+  au BufNewFile,BufRead *.out set filetype=log
+  " Tmux
+  let g:tmuxify_custom_command = 'tmux split-window -d -l 30'
+  map <Leader>md ^v$<Leader>ms
+  " Send line to vim command ,mv
+  map <Leader>mv ^v$y:<C-R>0<BS><CR>
+  " Markdown 
+  let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby', 'yaml', 'json', 'xml'] 
+endif
+
 if !exists(':YcmCompleter')
   " CTRL-P or CTRL-N are used
   set completeopt=menu,preview
