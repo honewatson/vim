@@ -23,6 +23,7 @@ autocmd FileType sh setlocal shiftwidth=2 tabstop=2
 set smartcase "ignore case if search pattern all lowercase
 set wildignore+=*/.git/*,*/.hg/*,*/tmp/*,*.swp
 "set showmatch
+"set noshowmatch
 " Turn off highlight after select
 
 if exists(':CmdlineEnter')
@@ -66,13 +67,6 @@ set si "Smart indent
 set cursorline
 hi CursorLine cterm=NONE ctermbg=235
 hi Visual cterm=NONE ctermbg=192 ctermfg=black
-function! MyHighlights() abort
-    hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
-endfunction
-augroup MyColors
-    autocmd!
-    autocmd ColorScheme * call MyHighlights()
-augroup END
 
 " Lang
 filetype plugin indent on " required
@@ -167,6 +161,8 @@ if filereadable($plug_file)
   Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
   " Autocomplete & Lint
   Plug 'w0rp/ale'
+  Plug 'Valloric/YouCompleteMe'
+  " Use release branch
   "Plug 'othree/jspc.vim', {'for': ['html', 'javascript']}
   " Editor Visual
   Plug 'bling/vim-airline'
@@ -195,6 +191,7 @@ if filereadable($plug_file)
   " Syntax
   let g:typescript_indent_disable = 1
   let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby', 'yaml', 'json', 'xml'] 
+  au BufNewFile,BufRead *.nim set filetype=nim
   " Navigation
   let g:sneak#streak = 1
   let g:tagbar_autofocus = 1
@@ -202,6 +199,8 @@ if filereadable($plug_file)
   " Editor
   let g:airline#extensions#tabline#enabled = 1
   " Autocomplete
+" always show signcolumns
+  set signcolumn=yes
   let g:UltiSnipsExpandTrigger = ";;<tab>"
   let g:ulti_expand_or_jump_res = 0
   let g:ultisnips_python_style="doxygen"
@@ -220,6 +219,15 @@ if filereadable($plug_file)
   let g:UltiSnipsEditSplit='vertical'
   let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $HOME.'/vim/UltiSnips']
   let g:UltiSnipsSnippetsDir=$HOME.'/vim/UltiSnips'
+
+  let g:ycm_always_populate_location_list = 1
+  let g:ycm_autoclose_preview_window_after_completion = 1
+  let g:ycm_filetype_blacklist={'unite': 1}
+  let g:ycm_min_num_of_chars_for_completion = 1
+  map <Leader>dd :YcmCompleter GoToDefinition<CR>
+  map <Leader>dv :YcmCompleter RefactorRename<space>
+  map <Leader>df <c-p>
+  map <Leader>dc /const <CR>w
   " Version control
   map <Leader>gc :Git commit -a -m "
   map <Leader>gp :Git push<cr>
@@ -235,7 +243,7 @@ if filereadable($plug_file)
   map <Leader>fl :Lines<CR>
 endif
   
-  if !exists(':UltiSnipsEdit')
+if !exists(':UltiSnipsEdit')
   " CTRL-P or CTRL-N are used
   set completeopt=menu,preview
   if exists('*completeopt#noselect')

@@ -114,7 +114,10 @@ hi CursorColumn guifg=NONE guibg=#383A3E gui=NONE ctermfg=NONE ctermbg=236 cterm
 hi CursorLine guifg=NONE guibg=#383A3E gui=NONE ctermfg=NONE ctermbg=236 cterm=NONE
 hi Cursor guifg=#111111 guibg=#F8F8F2 gui=NONE ctermfg=233 ctermbg=15 cterm=NONE
 hi Visual guifg=NONE guibg=#49483E gui=NONE ctermfg=NONE ctermbg=59 cterm=NONE
-hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=233 ctermbg=185 cterm=NONE
+"hi MatchParen guifg=#CCCCCC guibg=#FF0000 gui=NONE ctermfg=233 ctermbg=185 cterm=NONE
+hi MatchParen guifg=#CCCCCC guibg=#cc0066 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
+"hi MatchParen guifg=#111111 guibg=#E6DB74 gui=NONE ctermfg=15 ctermbg=197 cterm=NONE
+
 
 if has("nvim")
 
