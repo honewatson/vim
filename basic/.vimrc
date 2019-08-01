@@ -55,6 +55,7 @@ set infercase
 set number "Show numbers
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
+" Linebreak on 500 characters
 set lbr "If on, Vim will wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen. 
 set tw=500
 set wrap "Wrap lines
@@ -114,6 +115,7 @@ nmap <Leader>tj :JsDoc<CR>
 map <Leader>mm :set mouse=a<cr>
 map <Leader>mo :set mouse=<cr>
 map <C-S-x> :Autoformat<CR>
+map <Leader>b <c-o>
 
 let $plug_file = expand("~/.config/nvim/autoload/plug.vim")
 let $plug_dir = expand('~/.config/nvim/plugged')
@@ -189,11 +191,51 @@ if filereadable($plug_file)
   map <Leader>md ^v$<Leader>ms
   " Send line to vim command ,mv
   map <Leader>mv ^v$y:<C-R>0<BS><CR>
-  " Markdown 
+  
+  " Syntax
+  let g:typescript_indent_disable = 1
   let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby', 'yaml', 'json', 'xml'] 
+  " Navigation
+  let g:sneak#streak = 1
+  let g:tagbar_autofocus = 1
+  map <C-n> :NERDTreeToggle<CR>
+  " Editor
+  let g:airline#extensions#tabline#enabled = 1
+  " Autocomplete
+  let g:UltiSnipsExpandTrigger = ";;<tab>"
+  let g:ulti_expand_or_jump_res = 0
+  let g:ultisnips_python_style="doxygen"
+  function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+      if g:ulti_expand_or_jump_res > 0
+	return snippet
+      else
+	return "\<CR>"
+      endif
+  endfunction
+  inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+  let g:UltiSnipsJumpForwardTrigger='<c-j>'
+  let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+  let g:UltiSnipsListSnippets="<c-L>"
+  let g:UltiSnipsEditSplit='vertical'
+  let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $HOME.'/vim/UltiSnips']
+  let g:UltiSnipsSnippetsDir=$HOME.'/vim/UltiSnips'
+  " Version control
+  map <Leader>gc :Git commit -a -m "
+  map <Leader>gp :Git push<cr>
+  map <Leader>e <c-y>,
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  " fzf
+  map <c-p> :Files<CR>
+  map <c-t> :Rg<space>
+  " fzf files
+  map <Leader>ff :Files<space>
+  map <Leader>fr :Rg<space>
+  map <Leader>fc :Commands<space>
+  map <Leader>fl :Lines<CR>
 endif
-
-if !exists(':YcmCompleter')
+  
+  if !exists(':UltiSnipsEdit')
   " CTRL-P or CTRL-N are used
   set completeopt=menu,preview
   if exists('*completeopt#noselect')
