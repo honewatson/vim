@@ -141,6 +141,25 @@ if filereadable($plug_file)
   Plug 'Rykka/riv.vim', {'for': 'reStructuredText'}
   Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
   Plug 'MTDL9/vim-log-highlighting'
+  Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+    \ 'javascript',
+    \ 'typescript',
+    \ 'css',
+    \ 'less',
+    \ 'scss',
+    \ 'json',
+    \ 'graphql',
+    \ 'markdown',
+    \ 'vue',
+    \ 'lua',
+    \ 'php',
+    \ 'python',
+    \ 'ruby',
+    \ 'html',
+    \ 'swift' ] }
   " File/Folder Nav
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
@@ -161,7 +180,9 @@ if filereadable($plug_file)
   Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
   " Autocomplete & Lint
   Plug 'w0rp/ale'
-  Plug 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe', { 'do': 'npm install -g javascript-typescript-langserver && npm install -g yaml-language-server' }
+  "Plug 'tenfyzhong/CompleteParameter.vim'
+  "Plug 'zxqfl/tabnine-vim'
   " Use release branch
   "Plug 'othree/jspc.vim', {'for': ['html', 'javascript']}
   " Editor Visual
@@ -178,7 +199,6 @@ if filereadable($plug_file)
   Plug 'tpope/vim-fugitive'
   call plug#end()
   " Javascript
-  let g:javascript_plugin_jsdoc = 1
   " Logs
   au BufNewFile,BufRead *.err set filetype=log
   au BufNewFile,BufRead *.out set filetype=log
@@ -224,10 +244,37 @@ if filereadable($plug_file)
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_filetype_blacklist={'unite': 1}
   let g:ycm_min_num_of_chars_for_completion = 1
+  let g:ycm_add_preview_to_completeopt = 1
+  let g:ycm_language_server = 
+    \ [ 
+    \   {
+    \     'name': 'yaml',
+    \     'cmdline': [ expand('~/.npm/bin/yaml-language-server'), '--stdio' ],
+    \     'filetypes': [ 'yaml' ]
+    \   },
+    "\   {
+    "\     'name': 'javascript',
+    "\     'cmdline': [ expand('~/.npm/bin/javascript-typescript-stdio', '--stdio') ],
+    "\     'filetypes': [ 'javascript' ]
+    "\   }
+    \ ]
+
+  let g:jsdoc_enable_es6 = 1
+
   map <Leader>dd :YcmCompleter GoToDefinition<CR>
+  map <Leader>dr :YcmCompleter GetDoc<CR>
   map <Leader>dv :YcmCompleter RefactorRename<space>
   map <Leader>df <c-p>
   map <Leader>dc /const <CR>w
+  "let g:complete_parameter_use_ultisnips_mapping = 1
+  "let g:complete_parameter_echo_signature = 1
+  "inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+  "smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+  "imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+  "smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+  "imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+  " jsDoc
+  map <Leader>dj :JsDoc<CR>
   " Version control
   map <Leader>gc :Git commit -a -m "
   map <Leader>gp :Git push<cr>
@@ -241,6 +288,10 @@ if filereadable($plug_file)
   map <Leader>fr :Rg<space>
   map <Leader>fc :Commands<space>
   map <Leader>fl :Lines<CR>
+  " Fix files with prettier, and then ESLint.
+  let b:ale_fixers = ['prettier']
+  " Equivalent to the above.
+  let b:ale_fixers = {'javascript': ['prettier']}  
 endif
   
 if !exists(':UltiSnipsEdit')
