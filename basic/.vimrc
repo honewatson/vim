@@ -251,13 +251,15 @@ if filereadable($plug_file)
     \     'name': 'yaml',
     \     'cmdline': [ expand('~/.npm/bin/yaml-language-server'), '--stdio' ],
     \     'filetypes': [ 'yaml' ]
-    \   },
+    \   }
+    \ ]
+    " Not needed to get the good stuff.  Is this impacting gopls?
+    " This was not aware of gopls
     "\   {
     "\     'name': 'javascript',
     "\     'cmdline': [ expand('~/.npm/bin/javascript-typescript-stdio', '--stdio') ],
     "\     'filetypes': [ 'javascript' ]
     "\   }
-    \ ]
 
   let g:jsdoc_enable_es6 = 1
 
