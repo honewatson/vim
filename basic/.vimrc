@@ -253,8 +253,8 @@ if filereadable($plug_file)
     \     'filetypes': [ 'yaml' ]
     \   }
     \ ]
-    " Not needed to get the good stuff.  Is this impacting gopls?
-    " This was not aware of gopls
+    " Not needed to get the good stuff.  Is this impacting gopls? Use vim-go or govim
+    " Only do the ./install.py for ycm then use the lsp versions
     "\   {
     "\     'name': 'javascript',
     "\     'cmdline': [ expand('~/.npm/bin/javascript-typescript-stdio', '--stdio') ],
