@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo apt install python3-dev python3-pip -y
+sudo apt install git
 sudo apt install build-essential cmake -y
 sudo apt install golang -y
 sudo apt install nodejs npm -y
@@ -36,5 +37,6 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 rsync -av ~/vim/basic/ ~/.config/nvim/
 ln -s ~/vim/basic/.vimrc ~/.config/nvim/init.vim
 nvim +PlugInstall +qall
+git config --global core.editor "vim"
 cd ~/.config/nvim/plugged/YouCompleteMe && git submodule update --init --recursive \
   && python install.py --rust-completer
