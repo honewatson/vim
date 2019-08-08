@@ -131,6 +131,7 @@ if filereadable($plug_file)
   Plug 'elzr/vim-json', {'for': ['json']}
   Plug 'godlygeek/tabular', {'for': ['md']}
   Plug 'plasticboy/vim-markdown', {'for': ['md']}
+  Plug 'rhysd/nyaovim-markdown-preview'
   Plug 'groenewege/vim-less', {'for': 'less'}
   Plug 'baabelfish/nvim-nim', {'for': 'nim'}
   Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
@@ -291,6 +292,13 @@ if filereadable($plug_file)
   map <Leader>fr :Rg<space>
   map <Leader>fc :Commands<space>
   map <Leader>fl :Lines<CR>
+
+  " Preview
+  " nyaovim preview specifically
+  map <Leader>vv :StartMarkdownPreview<CR>
+  map <Leader>vn :StopMarkdownPreview<CR>
+  "map <Leader>vb <Plug>(markdown-preview-scroll-bottom)
+  "map <Leader>vt <Plug>(markdown-preview-scroll-top)
   "  call fzf#vim#grep("rg --column --line-number --no-heading --colors=match:fg:yellow --color=always --smart-case -e ".join(split(<q-args>), " -e "), 1, <bang>0)',
 " command, with_column, [options]
   command! -bang -nargs=* Rg
@@ -305,7 +313,7 @@ if filereadable($plug_file)
   let b:ale_fixers = ['prettier']
   " Equivalent to the above.
   let b:ale_fixers = {'javascript': ['prettier']}  
-
+  
   
 endif
   
