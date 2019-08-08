@@ -164,7 +164,7 @@ if filereadable($plug_file)
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
+  Plug 'honewatson/fzf.vim'
   """ Helpers
   Plug 'tpope/vim-surround'
   Plug 'scrooloose/nerdcommenter'
@@ -268,6 +268,7 @@ if filereadable($plug_file)
   map <Leader>dv :YcmCompleter RefactorRename<space>
   map <Leader>df <c-p>
   map <Leader>dc /const <CR>w
+  " Complete Parameter Plugin
   "let g:complete_parameter_use_ultisnips_mapping = 1
   "let g:complete_parameter_echo_signature = 1
   "inoremap <silent><expr> ( complete_parameter#pre_complete("()")
@@ -290,10 +291,22 @@ if filereadable($plug_file)
   map <Leader>fr :Rg<space>
   map <Leader>fc :Commands<space>
   map <Leader>fl :Lines<CR>
+  "  call fzf#vim#grep("rg --column --line-number --no-heading --colors=match:fg:yellow --color=always --smart-case -e ".join(split(<q-args>), " -e "), 1, <bang>0)',
+" command, with_column, [options]
+  command! -bang -nargs=* Rg
+    \ call fzf#vim#grep("rg --column --line-number --no-heading --colors=match:fg:yellow --color=always --smart-case -e ".join(split(<q-args>), " -e "), 1,
+    \	fzf#vim#with_preview(),
+    \   <bang>0)
+
+  " Likewise, Files command with preview window
+  command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
   " Fix files with prettier, and then ESLint.
   let b:ale_fixers = ['prettier']
   " Equivalent to the above.
   let b:ale_fixers = {'javascript': ['prettier']}  
+
+  
 endif
   
 if !exists(':UltiSnipsEdit')
@@ -307,3 +320,6 @@ if !exists(':UltiSnipsEdit')
   inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
   inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 endif
+
+
+

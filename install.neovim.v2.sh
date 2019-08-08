@@ -40,3 +40,6 @@ nvim +PlugInstall +qall
 git config --global core.editor "vim"
 cd ~/.config/nvim/plugged/YouCompleteMe && git submodule update --init --recursive \
   && python install.py --rust-completer
+
+# Need to add bat and fd-find
+# fd -e md | fzf --preview 'bat --style=numbers --color=always {}'
