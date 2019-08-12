@@ -1,3 +1,4 @@
+kitty + complete setup fish | source
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval (eval /home/hwatson/anaconda3/bin/conda "shell.fish" "hook" $argv)
