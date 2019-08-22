@@ -124,6 +124,7 @@ if filereadable($plug_file)
   Plug 'christoomey/vim-tmux-navigator'
   " Kubernetes
   Plug 'andrewstuart/vim-kubernetes'
+  Plug 'pearofducks/ansible-vim'
   " Autopairs tool
   Plug 'jiangmiao/auto-pairs'
   """ Syntax
@@ -131,6 +132,8 @@ if filereadable($plug_file)
   Plug 'elzr/vim-json', {'for': ['json']}
   Plug 'godlygeek/tabular', {'for': ['md']}
   Plug 'plasticboy/vim-markdown', {'for': ['md']}
+  Plug 'greyblake/vim-preview'
+  Plug 'cespare/vim-toml', {'for': 'toml'}
   Plug 'rhysd/nyaovim-markdown-preview'
   Plug 'groenewege/vim-less', {'for': 'less'}
   Plug 'baabelfish/nvim-nim', {'for': 'nim'}
@@ -152,8 +155,8 @@ if filereadable($plug_file)
     \ 'less',
     \ 'scss',
     \ 'json',
-    \ 'graphql',
     \ 'markdown',
+    \ 'graphql',
     \ 'vue',
     \ 'lua',
     \ 'php',
