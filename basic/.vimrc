@@ -332,5 +332,11 @@ if !exists(':UltiSnipsEdit')
   "inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 endif
 
+" Added because mint intel graphics hardware driver autodims brightness and don't know how to fix
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight Normal guibg=none
+highlight NonText guibg=none
+"vim_markdown_folding_disabled 1
 
 
