@@ -385,6 +385,10 @@ augroup MyColors
 augroup END
 colorscheme monokai-phoenix
 let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby', 'yaml', 'json', 'xml'] 
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight Normal guibg=none
+highlight NonText guibg=vim_markdown_folding_disabled1
 " Follow link -> ge
 "
 "
