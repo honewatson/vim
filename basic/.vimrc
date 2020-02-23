@@ -185,6 +185,7 @@ if filereadable($plug_file)
     Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
     " Autocomplete & Lint
     Plug 'w0rp/ale'
+    " You must have GOPATH set and you must have run 'go mod init <modulename>' toget autocompletion for golang
     Plug 'Valloric/YouCompleteMe', { 'do': 'npm install -g javascript-typescript-langserver && npm install -g yaml-language-server', 'for': ['javascript', 'typescript', 'go'] }
     "Plug 'tenfyzhong/CompleteParameter.vim'
     "Plug 'zxqfl/tabnine-vim'
