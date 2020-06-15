@@ -41,6 +41,5 @@ map <Leader>dv :action RenameElement<CR>
 map <Leader>dc :action ExtractMethod<CR>
 map <Leader>f :action ReformatCode<CR>
 map <Leader>b :action Back<CR>
-map <Leader>dq :action Quokka.RunQuokkaOnFileOnce<CR>
-map <Leader>dw :action Quokka.RunQuokkaOnFileSave<CR>
+
 " '[[' '[{' '/;'

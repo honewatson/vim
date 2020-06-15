@@ -186,6 +186,7 @@ if filereadable($plug_file)
     " Autocomplete & Lint
     Plug 'w0rp/ale'
     " You must have GOPATH set and you must have run 'go mod init <modulename>' toget autocompletion for golang
+    " Or you must create the project in the GOPATH/src for the gopls to work
     Plug 'Valloric/YouCompleteMe', { 'do': 'npm install -g javascript-typescript-langserver && npm install -g yaml-language-server', 'for': ['javascript', 'typescript', 'go'] }
     "Plug 'tenfyzhong/CompleteParameter.vim'
     "Plug 'zxqfl/tabnine-vim'
@@ -320,6 +321,8 @@ if filereadable($plug_file)
     " nyaovim preview specifically
     map <Leader>vv :StartMarkdownPreview<CR>
     map <Leader>vn :StopMarkdownPreview<CR>
+    autocmd FileType go nnoremap <buffer> <Leader>nr :GoRun<CR>
+    autocmd FileType go nnoremap <buffer> <Leader>nf :GoFmt<CR>
     "map <Leader>vb <Plug>(markdown-preview-scroll-bottom)
     "map <Leader>vt <Plug>(markdown-preview-scroll-top)
     "  call fzf#vim#grep("rg --column --line-number --no-heading --colors=match:fg:yellow --color=always --smart-case -e ".join(split(<q-args>), " -e "), 1, <bang>0)',
@@ -336,6 +339,7 @@ if filereadable($plug_file)
     let b:ale_fixers = ['prettier']
     " Equivalent to the above.
     let b:ale_fixers = {'javascript': ['prettier']}  
+
 endif
   
 if !exists(':UltiSnipsEdit')
