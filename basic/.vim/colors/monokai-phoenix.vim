@@ -260,6 +260,12 @@ function! s:jsonMonokaiPhoenixFiletype()
 
 endfunction
 
+function! s:goLangMonokaiPhoenixFiletype() 
+
+  hi goVar guifg=#253B22 guibg=NONE gui=NONE ctermfg=22 ctermbg=NONE cterm=NONE
+ "Palm Leaf        GUI: #253B22, Term:  22
+endfunction
+
 function! s:pursMonokaiPhoenixFiletype()
   " Purescript Syntax
   " --------------------------
@@ -281,4 +287,5 @@ augroup MONOKAI_PHOENIX_FILETYPE_LOADER
   au Filetype cpp call <SID>cppMonokaiPhoenixFiletype()
   au Filetype json call <SID>jsonMonokaiPhoenixFiletype()
   au Filetype javascript call <SID>javascriptMonokaiPhoenixFiletype()
+  au Filetype go call <SID>goLangMonokaiPhoenixFiletype()
 augroup END

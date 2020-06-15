@@ -44,9 +44,10 @@ endif
 if has('termguicolors')
     set termguicolors
 endif
-colorscheme monokai-phoenix
-
-" Commands
+"colorscheme monokai-phoenix
+"
+"
+"" Commands
 set ttimeoutlen=50 "Time in milliseconds to wait for a key code sequence to complete.
 
 " Completion
@@ -115,6 +116,21 @@ let $plug_file = expand("~/.config/nvim/autoload/plug.vim")
 let $plug_dir = expand('~/.config/nvim/plugged')
 
 if filereadable($plug_file)
+
+
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_function_calls = 1
+  let g:go_highlight_function_parameters = 1
+  let g:go_highlight_function_arguments = 1
+  "let g:go_highlight_operators = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_types = 1
+  let g:go_highlight_variable_declarations = 1
+  let g:go_highlight_variable_assignments = 1
+  "let g:go_fold_enable = ['import']
   set rtp+=$plug_file
   " :PlugAll
   call plug#begin($plug_dir)
@@ -131,6 +147,7 @@ if filereadable($plug_file)
     Plug 'jiangmiao/auto-pairs'
     """ Syntax
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go'}
+    "Plug 'govim/govim', { 'for': 'go' }
     Plug 'elzr/vim-json', {'for': ['json']}
     Plug 'godlygeek/tabular', {'for': ['md']}
     Plug 'plasticboy/vim-markdown', {'for': ['md']}
@@ -201,12 +218,17 @@ if filereadable($plug_file)
     "an underlying version control system.
     Plug 'mhinz/vim-signify'
 
+    Plug 'bluz71/vim-moonfly-colors'
+    "Plug 'morhetz/gruvbox'
     """ Version Control
     " Git support
-    Plug 'tpope/vim-fugitiv'
+    Plug 'tpope/vim-fugitive'
+
   call plug#end()
 
-  "if exists(':NimDocOf')
+    colorscheme moonfly
+    "colorscheme gruvbox
+    "if exists(':NimDocOf')
     inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"  
@@ -339,7 +361,6 @@ if filereadable($plug_file)
     let b:ale_fixers = ['prettier']
     " Equivalent to the above.
     let b:ale_fixers = {'javascript': ['prettier']}  
-
 endif
   
 if !exists(':UltiSnipsEdit')
@@ -355,10 +376,9 @@ if !exists(':UltiSnipsEdit')
 endif
 
 " Added because mint intel graphics hardware driver autodims brightness and don't know how to fix
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight Normal guibg=none
-highlight NonText guibg=none
+"highlight Normal ctermbg=none
+"highlight NonText ctermbg=none
+"highlight Normal guibg=none
+"highlight NonText guibg=none
 "vim_markdown_folding_disabled 1
-
 
