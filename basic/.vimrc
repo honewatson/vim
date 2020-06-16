@@ -115,270 +115,276 @@ map <Leader>b <c-o>
 let $plug_file = expand("~/.config/nvim/autoload/plug.vim")
 let $plug_dir = expand('~/.config/nvim/plugged')
 
-if filereadable($plug_file)
+if !exists('g:vscode')
+
+  if filereadable($plug_file)
 
 
-  let g:go_highlight_build_constraints = 1
-  let g:go_highlight_extra_types = 1
-  let g:go_highlight_fields = 1
-  let g:go_highlight_functions = 1
-  let g:go_highlight_function_calls = 1
-  let g:go_highlight_function_parameters = 1
-  let g:go_highlight_function_arguments = 1
-  "let g:go_highlight_operators = 1
-  let g:go_highlight_structs = 1
-  let g:go_highlight_types = 1
-  let g:go_highlight_variable_declarations = 1
-  let g:go_highlight_variable_assignments = 1
-  "let g:go_fold_enable = ['import']
-  set rtp+=$plug_file
-  " :PlugAll
-  call plug#begin($plug_dir)
-    Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'nim' }
+    let g:go_highlight_build_constraints = 1
+    let g:go_highlight_extra_types = 1
+    let g:go_highlight_fields = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_function_calls = 1
+    let g:go_highlight_function_parameters = 1
+    let g:go_highlight_function_arguments = 1
+    "let g:go_highlight_operators = 1
+    let g:go_highlight_structs = 1
+    let g:go_highlight_types = 1
+    let g:go_highlight_variable_declarations = 1
+    let g:go_highlight_variable_assignments = 1
+    "let g:go_fold_enable = ['import']
+    set rtp+=$plug_file
+    " :PlugAll
+    call plug#begin($plug_dir)
+      Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'nim' }
 
-    Plug 'alaviss/nim.nvim', { 'for': 'nim' }
-    " Add back in TMUX
-    Plug 'jebaum/vim-tmuxify'
-    Plug 'christoomey/vim-tmux-navigator'
-    " Kubernetes
-    Plug 'andrewstuart/vim-kubernetes'
-    Plug 'pearofducks/ansible-vim'
-    " Autopairs tool
-    Plug 'jiangmiao/auto-pairs'
-    """ Syntax
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go'}
-    "Plug 'govim/govim', { 'for': 'go' }
-    Plug 'elzr/vim-json', {'for': ['json']}
-    Plug 'godlygeek/tabular', {'for': ['md']}
-    Plug 'plasticboy/vim-markdown', {'for': ['md']}
-    Plug 'greyblake/vim-preview'
-    Plug 'cespare/vim-toml', {'for': 'toml'}
-    Plug 'rhysd/nyaovim-markdown-preview'
-    Plug 'groenewege/vim-less', {'for': 'less'}
-    Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
-    Plug 'chaquotay/ftl-vim-syntax', {'for': 'freemarker'}
-    Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-    Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
-    Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
-    Plug 'Rykka/riv.vim', {'for': 'reStructuredText'}
-    Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
-    Plug 'MTDL9/vim-log-highlighting'
-    Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install',
-    \ 'branch': 'release/1.x',
-    \ 'for': [
-      \ 'javascript',
-      \ 'typescript',
-      \ 'css',
-      \ 'less',
-      \ 'scss',
-      \ 'json',
-      \ 'markdown',
-      \ 'graphql',
-      \ 'vue',
-      \ 'lua',
-      \ 'php',
-      \ 'python',
-      \ 'ruby',
-      \ 'html',
-      \ 'swift' ] }
-    " File/Folder Nav
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'honewatson/fzf.vim'
-    """ Helpers
-    Plug 'tpope/vim-surround'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'justinmk/vim-sneak'
-    " Additional Indent support
-    Plug 'tpope/vim-sleuth'
-    " Emmet auto completion 
-    Plug 'mattn/emmet-vim', {'for': ['moon', 'moonscript', 'html', 'javascript']}
-    " Generate JSDOC
-    Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'javascript']}
-    " Snippets
-    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-    Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
-    " Autocomplete & Lint
-    Plug 'w0rp/ale'
-    " You must have GOPATH set and you must have run 'go mod init <modulename>' toget autocompletion for golang
-    " Or you must create the project in the GOPATH/src for the gopls to work
-    Plug 'Valloric/YouCompleteMe', { 'do': 'npm install -g javascript-typescript-langserver && npm install -g yaml-language-server', 'for': ['javascript', 'typescript', 'go'] }
-    "Plug 'tenfyzhong/CompleteParameter.vim'
-    "Plug 'zxqfl/tabnine-vim'
-    " Use release branch
-    "Plug 'othree/jspc.vim', {'for': ['html', 'javascript']}
-    " Editor Visual
-    Plug 'bling/vim-airline'
-    "Tagbar is a Vim plugin that provides an easy way to browse the tags of the
-    "current file and get an overview of its structure. 
-    Plug 'majutsushi/tagbar'
-    "vim signifiy It uses signs to indicate added, modified and removed lines based on data of
-    "an underlying version control system.
-    Plug 'mhinz/vim-signify'
+      Plug 'alaviss/nim.nvim', { 'for': 'nim' }
+      " Add back in TMUX
+      Plug 'jebaum/vim-tmuxify'
+      Plug 'christoomey/vim-tmux-navigator'
+      " Kubernetes
+      Plug 'andrewstuart/vim-kubernetes'
+      Plug 'pearofducks/ansible-vim'
+      " Autopairs tool
+      Plug 'jiangmiao/auto-pairs'
+      """ Syntax
+      Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go'}
+      "Plug 'govim/govim', { 'for': 'go' }
+      Plug 'elzr/vim-json', {'for': ['json']}
+      Plug 'godlygeek/tabular', {'for': ['md']}
+      Plug 'plasticboy/vim-markdown', {'for': ['md']}
+      Plug 'greyblake/vim-preview'
+      Plug 'cespare/vim-toml', {'for': 'toml'}
+      Plug 'rhysd/nyaovim-markdown-preview'
+      Plug 'groenewege/vim-less', {'for': 'less'}
+      Plug 'leafo/moonscript-vim', {'for': ['moonscript', 'moon']}
+      Plug 'chaquotay/ftl-vim-syntax', {'for': 'freemarker'}
+      Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+      Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
+      Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
+      Plug 'Rykka/riv.vim', {'for': 'reStructuredText'}
+      Plug 'Rykka/InstantRst', {'for': 'reStructuredText'}
+      Plug 'MTDL9/vim-log-highlighting'
+      Plug 'prettier/vim-prettier', {
+      \ 'do': 'yarn install',
+      \ 'branch': 'release/1.x',
+      \ 'for': [
+        \ 'javascript',
+        \ 'typescript',
+        \ 'css',
+        \ 'less',
+        \ 'scss',
+        \ 'json',
+        \ 'markdown',
+        \ 'graphql',
+        \ 'vue',
+        \ 'lua',
+        \ 'php',
+        \ 'python',
+        \ 'ruby',
+        \ 'html',
+        \ 'swift' ] }
+      " File/Folder Nav
+      Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+      "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+      Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+      Plug 'honewatson/fzf.vim'
+      """ Helpers
+      Plug 'tpope/vim-surround'
+      Plug 'scrooloose/nerdcommenter'
+      Plug 'justinmk/vim-sneak'
+      " Additional Indent support
+      Plug 'tpope/vim-sleuth'
+      " Emmet auto completion 
+      Plug 'mattn/emmet-vim', {'for': ['moon', 'moonscript', 'html', 'javascript']}
+      " Generate JSDOC
+      Plug 'heavenshell/vim-jsdoc', {'for': ['html', 'javascript']}
+      " Snippets
+      Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+      Plug 'alexbyk/vim-ultisnips-js-testing', {'for': 'javascript'}
+      " Autocomplete & Lint
+      Plug 'w0rp/ale'
+      " You must have GOPATH set and you must have run 'go mod init <modulename>' toget autocompletion for golang
+      " Or you must create the project in the GOPATH/src for the gopls to work
+      Plug 'Valloric/YouCompleteMe', { 'do': 'npm install -g javascript-typescript-langserver && npm install -g yaml-language-server', 'for': ['javascript', 'typescript', 'go'] }
+      "Plug 'tenfyzhong/CompleteParameter.vim'
+      "Plug 'zxqfl/tabnine-vim'
+      " Use release branch
+      "Plug 'othree/jspc.vim', {'for': ['html', 'javascript']}
+      " Editor Visual
+      Plug 'bling/vim-airline'
+      "Tagbar is a Vim plugin that provides an easy way to browse the tags of the
+      "current file and get an overview of its structure. 
+      Plug 'majutsushi/tagbar'
+      "vim signifiy It uses signs to indicate added, modified and removed lines based on data of
+      "an underlying version control system.
+      Plug 'mhinz/vim-signify'
 
-    Plug 'bluz71/vim-moonfly-colors'
-    "Plug 'morhetz/gruvbox'
-    """ Version Control
-    " Git support
-    Plug 'tpope/vim-fugitive'
+      Plug 'bluz71/vim-moonfly-colors'
+      "Plug 'morhetz/gruvbox'
+      """ Version Control
+      " Git support
+      Plug 'tpope/vim-fugitive'
 
-  call plug#end()
+    call plug#end()
 
-    colorscheme moonfly
-    "colorscheme gruvbox
-    "if exists(':NimDocOf')
-    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-    inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"  
-    imap <c-space> <Plug>(asyncomplete_force_refresh)
-    set completeopt+=preview
-    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-    au User asyncomplete_setup call asyncomplete#register_source({
-	\ 'name': 'nim',
-	\ 'whitelist': ['nim'],
-	\ 'completor': {opt, ctx -> nim#suggest#sug#GetAllCandidates({start, candidates -> asyncomplete#complete(opt['name'], ctx, start, candidates)})}
-	\ })
-    let g:asyncomplete_auto_popup = 1
-  "else
+      colorscheme moonfly
+      "colorscheme gruvbox
+      "if exists(':NimDocOf')
+      inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+      inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+      inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"  
+      imap <c-space> <Plug>(asyncomplete_force_refresh)
+      set completeopt+=preview
+      autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+      au User asyncomplete_setup call asyncomplete#register_source({
+    \ 'name': 'nim',
+    \ 'whitelist': ['nim'],
+    \ 'completor': {opt, ctx -> nim#suggest#sug#GetAllCandidates({start, candidates -> asyncomplete#complete(opt['name'], ctx, start, candidates)})}
+    \ })
+      let g:asyncomplete_auto_popup = 1
+    "else
 
-    let g:ycm_always_populate_location_list = 1
-    let g:ycm_autoclose_preview_window_after_completion = 1
-    let g:ycm_filetype_blacklist={'unite': 1}
-    let g:ycm_min_num_of_chars_for_completion = 1
-    let g:ycm_add_preview_to_completeopt = 1
-    let g:ycm_language_server = 
-      \ [ 
-      \   {
-      \     'name': 'yaml',
-      \     'cmdline': [ expand('~/.npm/bin/yaml-language-server'), '--stdio' ],
-      \     'filetypes': [ 'yaml' ]
-      \   }
-      \ ]
+      let g:ycm_always_populate_location_list = 1
+      let g:ycm_autoclose_preview_window_after_completion = 1
+      let g:ycm_filetype_blacklist={'unite': 1}
+      let g:ycm_min_num_of_chars_for_completion = 1
+      let g:ycm_add_preview_to_completeopt = 1
+      let g:ycm_language_server = 
+        \ [ 
+        \   {
+        \     'name': 'yaml',
+        \     'cmdline': [ expand('~/.npm/bin/yaml-language-server'), '--stdio' ],
+        \     'filetypes': [ 'yaml' ]
+        \   }
+        \ ]
 
-    map <Leader>dd :YcmCompleter GoToDefinition<CR>
-    map <Leader>dr :YcmCompleter GetDoc<CR>
-    map <Leader>dv :YcmCompleter RefactorRename<space>
-  "endif
-    " Javascript
-    " Logs
-    au BufNewFile,BufRead *.err set filetype=log
-    au BufNewFile,BufRead *.out set filetype=log
-    " Tmux
-    let g:tmuxify_custom_command = 'tmux split-window -d -l 30'
-    map <Leader>md ^v$<Leader>ms
-    " Send line to vim command ,mv
-    map <Leader>mv ^v$y:<C-R>0<BS><CR>
+      map <Leader>dd :YcmCompleter GoToDefinition<CR>
+      map <Leader>dr :YcmCompleter GetDoc<CR>
+      map <Leader>dv :YcmCompleter RefactorRename<space>
+    "endif
+      " Javascript
+      " Logs
+      au BufNewFile,BufRead *.err set filetype=log
+      au BufNewFile,BufRead *.out set filetype=log
+      " Tmux
+      let g:tmuxify_custom_command = 'tmux split-window -d -l 30'
+      map <Leader>md ^v$<Leader>ms
+      " Send line to vim command ,mv
+      map <Leader>mv ^v$y:<C-R>0<BS><CR>
+      
+      " Syntax
+      let g:typescript_indent_disable = 1
+      let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby', 'yaml', 'json', 'xml'] 
+      au BufNewFile,BufRead *.nim set filetype=nim
+      " Navigation
+      let g:sneak#streak = 1
+      let g:tagbar_autofocus = 1
+      map <C-n> :NERDTreeToggle<CR>
+      " Editor
+      let g:airline#extensions#tabline#enabled = 1
+      " Autocomplete
+    " always show signcolumns
+      set signcolumn=yes
+      let g:UltiSnipsExpandTrigger = ";;<tab>"
+      let g:ulti_expand_or_jump_res = 0
+      let g:ultisnips_python_style="doxygen"
+      function ExpandSnippetOrCarriageReturn()
+        let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+      return snippet
+    else
+      return "\<CR>"
+    endif
+      endfunction
+      inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+      let g:UltiSnipsJumpForwardTrigger='<c-j>'
+      let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+      let g:UltiSnipsListSnippets="<c-L>"
+      let g:UltiSnipsEditSplit='vertical'
+      let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $HOME.'/vim/UltiSnips']
+      let g:UltiSnipsSnippetsDir=$HOME.'/vim/UltiSnips'
+
+        " Not needed to get the good stuff.  Is this impacting gopls? Use vim-go or govim
+        " Only do the ./install.py for ycm then use the lsp versions
+        "\   {
+        "\     'name': 'javascript',
+        "\     'cmdline': [ expand('~/.npm/bin/javascript-typescript-stdio', '--stdio') ],
+        "\     'filetypes': [ 'javascript' ]
+        "\   }
+
+      let g:jsdoc_enable_es6 = 1
+
+      map <Leader>df <c-p>
+      map <Leader>dc /const <CR>w
+      " Complete Parameter Plugin
+      "let g:complete_parameter_use_ultisnips_mapping = 1
+      "let g:complete_parameter_echo_signature = 1
+      "inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+      "smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+      "imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+      "smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+      "imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+      " jsDoc
+      map <Leader>dj :JsDoc<CR>
+      " Version control
+      map <Leader>gc :Git commit -a -m "
+      map <Leader>gp :Git push<cr>
+      map <Leader>e <c-y>,
+      let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+      " fzf
+      map <c-p> :Files<CR>
+      map <c-t> :Rg<space>
+      " fzf files
+      map <Leader>ff :Files<space>
+      map <Leader>fr :Rg<space>
+      map <Leader>fc :Commands<space>
+      map <Leader>fl :Lines<CR>
+
+      " Preview
+      " nyaovim preview specifically
+      map <Leader>vv :StartMarkdownPreview<CR>
+      map <Leader>vn :StopMarkdownPreview<CR>
+      autocmd FileType go nnoremap <buffer> <Leader>nr :GoRun<CR>
+      autocmd FileType go nnoremap <buffer> <Leader>nf :GoFmt<CR>
+      "map <Leader>vb <Plug>(markdown-preview-scroll-bottom)
+      "map <Leader>vt <Plug>(markdown-preview-scroll-top)
+      "  call fzf#vim#grep("rg --column --line-number --no-heading --colors=match:fg:yellow --color=always --smart-case -e ".join(split(<q-args>), " -e "), 1, <bang>0)',
+    " command, with_column, [options]
+      command! -bang -nargs=* Rg
+        \ call fzf#vim#grep("rg --column --line-number --no-heading --colors=match:fg:yellow --color=always --smart-case -e ".join(split(<q-args>), " -e "), 1,
+        \	fzf#vim#with_preview(),
+        \   <bang>0)
+
+      " Likewise, Files command with preview window
+      command! -bang -nargs=? -complete=dir Files
+        \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+      " Fix files with prettier, and then ESLint.
+      let b:ale_fixers = ['prettier']
+      " Equivalent to the above.
+      let b:ale_fixers = {'javascript': ['prettier']}  
+  endif
     
-    " Syntax
-    let g:typescript_indent_disable = 1
-    let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby', 'yaml', 'json', 'xml'] 
-    au BufNewFile,BufRead *.nim set filetype=nim
-    " Navigation
-    let g:sneak#streak = 1
-    let g:tagbar_autofocus = 1
-    map <C-n> :NERDTreeToggle<CR>
-    " Editor
-    let g:airline#extensions#tabline#enabled = 1
-    " Autocomplete
-  " always show signcolumns
-    set signcolumn=yes
-    let g:UltiSnipsExpandTrigger = ";;<tab>"
-    let g:ulti_expand_or_jump_res = 0
-    let g:ultisnips_python_style="doxygen"
-    function ExpandSnippetOrCarriageReturn()
-      let snippet = UltiSnips#ExpandSnippetOrJump()
-	if g:ulti_expand_or_jump_res > 0
-	  return snippet
-	else
-	  return "\<CR>"
-	endif
-    endfunction
-    inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
-    let g:UltiSnipsJumpForwardTrigger='<c-j>'
-    let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-    let g:UltiSnipsListSnippets="<c-L>"
-    let g:UltiSnipsEditSplit='vertical'
-    let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $HOME.'/vim/UltiSnips']
-    let g:UltiSnipsSnippetsDir=$HOME.'/vim/UltiSnips'
+  if !exists(':UltiSnipsEdit')
+    " CTRL-P or CTRL-N are used
+    "set completeopt=menu,preview
+    "if exists('*completeopt#noselect')
+      "completeopt+=noselect,noinsert
+    "endif
+    " Support for enter
+    "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    "inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+    "inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+  endif
 
-      " Not needed to get the good stuff.  Is this impacting gopls? Use vim-go or govim
-      " Only do the ./install.py for ycm then use the lsp versions
-      "\   {
-      "\     'name': 'javascript',
-      "\     'cmdline': [ expand('~/.npm/bin/javascript-typescript-stdio', '--stdio') ],
-      "\     'filetypes': [ 'javascript' ]
-      "\   }
+  " Added because mint intel graphics hardware driver autodims brightness and don't know how to fix
+  "highlight Normal ctermbg=none
+  "highlight NonText ctermbg=none
+  "highlight Normal guibg=none
+  "highlight NonText guibg=none
+  "vim_markdown_folding_disabled 1
+  "
 
-    let g:jsdoc_enable_es6 = 1
+  else
 
-    map <Leader>df <c-p>
-    map <Leader>dc /const <CR>w
-    " Complete Parameter Plugin
-    "let g:complete_parameter_use_ultisnips_mapping = 1
-    "let g:complete_parameter_echo_signature = 1
-    "inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-    "smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-    "imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-    "smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-    "imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-    " jsDoc
-    map <Leader>dj :JsDoc<CR>
-    " Version control
-    map <Leader>gc :Git commit -a -m "
-    map <Leader>gp :Git push<cr>
-    map <Leader>e <c-y>,
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-    " fzf
-    map <c-p> :Files<CR>
-    map <c-t> :Rg<space>
-    " fzf files
-    map <Leader>ff :Files<space>
-    map <Leader>fr :Rg<space>
-    map <Leader>fc :Commands<space>
-    map <Leader>fl :Lines<CR>
-
-    " Preview
-    " nyaovim preview specifically
-    map <Leader>vv :StartMarkdownPreview<CR>
-    map <Leader>vn :StopMarkdownPreview<CR>
-    autocmd FileType go nnoremap <buffer> <Leader>nr :GoRun<CR>
-    autocmd FileType go nnoremap <buffer> <Leader>nf :GoFmt<CR>
-    "map <Leader>vb <Plug>(markdown-preview-scroll-bottom)
-    "map <Leader>vt <Plug>(markdown-preview-scroll-top)
-    "  call fzf#vim#grep("rg --column --line-number --no-heading --colors=match:fg:yellow --color=always --smart-case -e ".join(split(<q-args>), " -e "), 1, <bang>0)',
-  " command, with_column, [options]
-    command! -bang -nargs=* Rg
-      \ call fzf#vim#grep("rg --column --line-number --no-heading --colors=match:fg:yellow --color=always --smart-case -e ".join(split(<q-args>), " -e "), 1,
-      \	fzf#vim#with_preview(),
-      \   <bang>0)
-
-    " Likewise, Files command with preview window
-    command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-    " Fix files with prettier, and then ESLint.
-    let b:ale_fixers = ['prettier']
-    " Equivalent to the above.
-    let b:ale_fixers = {'javascript': ['prettier']}  
 endif
-  
-if !exists(':UltiSnipsEdit')
-  " CTRL-P or CTRL-N are used
-  "set completeopt=menu,preview
-  "if exists('*completeopt#noselect')
-    "completeopt+=noselect,noinsert
-  "endif
-  " Support for enter
-  "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-  "inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-  "inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-endif
-
-" Added because mint intel graphics hardware driver autodims brightness and don't know how to fix
-"highlight Normal ctermbg=none
-"highlight NonText ctermbg=none
-"highlight Normal guibg=none
-"highlight NonText guibg=none
-"vim_markdown_folding_disabled 1
-
