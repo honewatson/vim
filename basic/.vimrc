@@ -120,11 +120,11 @@ if !exists('g:vscode') && filereadable($plug_file)
   let g:go_highlight_function_calls = 1
   let g:go_highlight_function_parameters = 1
   let g:go_highlight_function_arguments = 1
-  "let g:go_highlight_operators = 1
+  let g:go_highlight_operators = 1
   let g:go_highlight_structs = 1
   let g:go_highlight_types = 1
-  let g:go_highlight_variable_declarations = 1
-  let g:go_highlight_variable_assignments = 1
+  "let g:go_highlight_variable_declarations = 1
+  "let g:go_highlight_variable_assignments = 1
   "let g:go_fold_enable = ['import']
   set rtp+=$plug_file
   " :PlugAll
@@ -222,6 +222,20 @@ if !exists('g:vscode') && filereadable($plug_file)
   call plug#end()
 
   colorscheme moonfly
+  " Fix vim-go syntax
+  augroup ft_go
+    autocmd!
+    autocmd Syntax go syn match goParens /[(){}]/
+    autocmd Syntax go syn match goEquals /=/
+    autocmd Syntax go syn match goColon /:/
+    autocmd Syntax go syn match goOther />/
+    autocmd Syntax go syn match goDot "\."
+    autocmd Syntax go hi def link goParens  goBuiltIns
+    autocmd Syntax go hi def link goEquals  goBuiltIns
+    autocmd Syntax go hi def link goColon  goBuiltIns
+    autocmd Syntax go hi def link goOther  goBuiltIns
+    autocmd Syntax go hi def link goDot  goBuiltIns
+  augroup end
   inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
   inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"  
