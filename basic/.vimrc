@@ -239,8 +239,11 @@ if !exists('g:vscode') && filereadable($plug_file)
   inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
   inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"  
-  imap <c-space> <Plug>(asyncomplete_force_refresh)
-  set completeopt+=preview
+  "inoremap <expr> <c-space>    pumvisible() ? "\<C-y>" : "\<c-space>"  
+  "imap <c-space> <Plug>(asyncomplete_force_refresh)
+  "set completeopt+=preview
+  set completeopt-=preview
+
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
   au User asyncomplete_setup call asyncomplete#register_source({
     \ 'name': 'nim',
@@ -248,12 +251,15 @@ if !exists('g:vscode') && filereadable($plug_file)
     \ 'completor': {opt, ctx -> nim#suggest#sug#GetAllCandidates({start, candidates -> asyncomplete#complete(opt['name'], ctx, start, candidates)})}
     \ })
   let g:asyncomplete_auto_popup = 1
-
-  let g:ycm_always_populate_location_list = 1
+  " You can't have the same characters for completion for Ultisnip and YCM
+  "let g:ycm_key_list_stop_completion = ['<C-y>', '<C-Space>', '<CR>']
+  let g:ycm_key_list_stop_completion = ['<C-y>']
+  let g:ycm_key_invoke_completion = '<C-,>'
+  let g:ycm_always_populate_location_list = 0
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_filetype_blacklist={'unite': 1}
   let g:ycm_min_num_of_chars_for_completion = 1
-  let g:ycm_add_preview_to_completeopt = 1
+  let g:ycm_add_preview_to_completeopt = 0
   let g:ycm_language_server = 
     \ [ 
     \   {
@@ -290,18 +296,18 @@ if !exists('g:vscode') && filereadable($plug_file)
   " Autocomplete
 " always show signcolumns
   set signcolumn=yes
-  let g:UltiSnipsExpandTrigger = ";;<tab>"
+  let g:UltiSnipsExpandTrigger = "<c-space>"
   let g:ulti_expand_or_jump_res = 0
   let g:ultisnips_python_style="doxygen"
-  function ExpandSnippetOrCarriageReturn()
-    let snippet = UltiSnips#ExpandSnippetOrJump()
-      if g:ulti_expand_or_jump_res > 0
-	return snippet
-      else
-	return "\<CR>"
-      endif
-  endfunction
-  inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+  "function ExpandSnippetOrCarriageReturn()
+    "let snippet = UltiSnips#ExpandSnippetOrJump()
+      "if g:ulti_expand_or_jump_res > 0
+	"return snippet
+      "else
+	"return "\<CR>"
+      "endif
+  "endfunction
+  "inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
   let g:UltiSnipsJumpForwardTrigger='<c-j>'
   let g:UltiSnipsJumpBackwardTrigger='<c-k>'
   let g:UltiSnipsListSnippets="<c-L>"
